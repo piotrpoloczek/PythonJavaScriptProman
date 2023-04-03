@@ -35,7 +35,6 @@ def get_boards():
     """
     return queries.get_boards()
 
-
 @app.route("/api/boards/<int:board_id>/cards/")
 @json_response
 def get_cards_for_board(board_id: int):
@@ -45,9 +44,7 @@ def get_cards_for_board(board_id: int):
     """
     return queries.get_cards_for_board(board_id)
 
-
 def main():
-    
     app.run(debug=True)
 
     # Serving the favicon
