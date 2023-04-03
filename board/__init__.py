@@ -5,7 +5,7 @@ board_bp = Blueprint(
     __name__,
     static_folder="static",
     static_url_path="/board/static",
-    template_folder="templates",
+    template_folder="/board/templates/board",
     url_prefix="/board",
 )
 
