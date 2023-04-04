@@ -6,7 +6,9 @@ register_bp = Blueprint(
     static_folder="static",
     static_url_path="/register/static",
     template_folder="templates",
-    url_prefix="/register",
 )
 
 from register import views
+
+
+

@@ -20,6 +20,8 @@ SET default_with_oids = false;
 DROP TABLE IF EXISTS statuses CASCADE;
 DROP TABLE IF EXISTS boards CASCADE;
 DROP TABLE IF EXISTS cards;
+DROP TABLE IF EXISTS users;
+
 
 ---
 --- create tables
@@ -32,7 +34,8 @@ CREATE TABLE statuses (
 
 CREATE TABLE boards (
     id          SERIAL PRIMARY KEY  NOT NULL,
-    title       VARCHAR(200)        NOT NULL
+    title       VARCHAR(200)        NOT NULL,
+    user_id     INTEGER             
 );
 
 CREATE TABLE cards (
@@ -42,6 +45,13 @@ CREATE TABLE cards (
     title       VARCHAR (200)       NOT NULL,
     card_order  INTEGER             NOT NULL
 );
+
+CREATE TABLE users (
+    id                  SERIAL PRIMARY KEY  NOT NULL,
+    registration_time   TIMESTAMP           NOT NULL,
+    user_name           TEXT                NOT NULL,
+    email VARCHAR(255)  UNIQUE              NOT NULL,
+    password            VARCHAR(255)        NOT NULL);
 
 ---
 --- insert data
