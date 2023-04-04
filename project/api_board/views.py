@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from api_board import api_board_bp
 from util.util import json_response
+from util import queries
 
 
 @api_board_bp.route("/")

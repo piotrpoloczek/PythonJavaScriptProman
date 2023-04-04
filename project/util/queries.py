@@ -1,4 +1,4 @@
-from data_manager import data_manager
+from util import data_manager
 
 
 def get_card_status(status_id):
