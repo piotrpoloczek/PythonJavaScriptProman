@@ -4,8 +4,10 @@ from util.util import json_response
 import mimetypes
 from data_manager import queries
 import os
-import user
-import board
+import login
+import api_board
+import register
+import app as main_app
 
 
 mimetypes.add_type('application/javascript', '.js')
@@ -14,35 +16,11 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 load_dotenv()
 
 # register the blueprints
-app.register_blueprint(user.user_bp)
-app.register_blueprint(board.board_bp)
+app.register_blueprint(main_app.app)
+app.register_blueprint(login.login_bp)
+app.register_blueprint(register.register_bp)
+app.register_blueprint(api_board.api_board_bp)
 
-
-
-@app.route("/")
-def index():
-    """
-    This is a one-pager which shows all the boards and cards
-    """
-    return render_template('index.html')
-
-
-@app.route("/api/boards")
-@json_response
-def get_boards():
-    """
-    All the boards
-    """
-    return queries.get_boards()
-
-@app.route("/api/boards/<int:board_id>/cards/")
-@json_response
-def get_cards_for_board(board_id: int):
-    """
-    All cards that belongs to a board
-    :param board_id: id of the parent board
-    """
-    return queries.get_cards_for_board(board_id)
 
 def main():
     app.run(debug=True)

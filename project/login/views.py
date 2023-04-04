@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for
-from board import board_bp
+from login import login_bp
 
-@board_bp.route("/")
+@login_bp.route("/")
 def index():
     """
     This is a one-pager which shows all the boards and cards
     """
-    return render_template('board/index.html')
+    return render_template('login/index.html')
