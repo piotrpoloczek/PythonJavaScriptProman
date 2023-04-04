@@ -1,13 +1,8 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, url_for
 from dotenv import load_dotenv
-from util.util import json_response
 import mimetypes
-from data_manager import queries
 import os
-import login
-import api_board
-import register
-import app as main_app
+import login, api_board, register, app as main_app
 
 
 mimetypes.add_type('application/javascript', '.js')
