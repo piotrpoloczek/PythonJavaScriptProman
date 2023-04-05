@@ -3,9 +3,6 @@ from app import app
 import os
 
 
-
-
-
 @app.route("/")
 def index():
     """
@@ -13,5 +10,9 @@ def index():
     """
     return render_template('app/index.html')
 
-
-
+@app.route("/design/")
+def design():
+    """
+    This is a one-pager which shows all the boards and cards
+    """
+    return render_template('app/design.html')
