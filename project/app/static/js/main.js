@@ -4,4 +4,5 @@ function init() {
     boardsManager.loadBoards();
 }
 
+console.log("this works");
 init();

@@ -11,7 +11,7 @@ def index():
     """
     return render_template('api_board/index.html')
 
-@api_board_bp.route("/api/boards")
+@api_board_bp.route("/boards")
 @json_response
 def get_boards():
     """
@@ -19,7 +19,7 @@ def get_boards():
     """
     return queries.get_boards()
 
-@api_board_bp.route("/api/boards/<int:board_id>/cards/")
+@api_board_bp.route("/boards/<int:board_id>/cards/")
 @json_response
 def get_cards_for_board(board_id: int):
     """
