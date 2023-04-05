@@ -58,3 +58,25 @@ def add_user(user_name,email,password,registration_time):
                 (%(user_name)s, %(email)s, %(password)s, %(registration_time)s)"""
                 , {'user_name': user_name, 'email': email, 'password':password,
                  'registration_time': registration_time})
+
+def users_emails():
+    users_emails = data_manager.execute_select(
+        """
+        SELECT email FROM users
+        """)
+    # print(users_emails)
+    return users_emails
+
+def user_data(email):
+    user_data = data_manager.execute_select(
+        """
+        SELECT * FROM users
+        WHERE email = %(email)s
+        ;
+        """
+        , {"email": email}, fetchall=None)
+    # print(user_data)
+    # print(user_data['password'])
+    return user_data
+
+# user_data('piotr@piotr.pl')

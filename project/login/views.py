@@ -1,9 +1,29 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session, flash
+from util import util, queries, data_manager
 from login import login_bp
+import os
 
-@login_bp.route("/")
-def index():
+
+@login_bp.route("/", methods=["GET", "POST"])
+def login():
     """
-    This is a one-pager which shows all the boards and cards
+   
     """
-    return render_template('login/index.html')
+    if request.method == 'POST':
+        email = request.form.get('email')
+        user_data = queries.user_data(email)
+        if queries.user_data(email) and \
+           util.verify_password(request.form['password'], user_data['password']):
+            session['email'] = email
+            session['user_id'] = user_data['id']
+            session['user_name'] = user_data['user_name']
+            global logged_in
+            logged_in = True
+            return redirect(url_for('app.index'))
+        else:
+            flash('Wrong email or password.') # nie działa
+            return render_template('login/login.html')
+    else:
+        return render_template('login/login.html')
+
+

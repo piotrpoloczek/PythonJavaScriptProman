@@ -1,7 +1,7 @@
 from functools import wraps
 from flask import jsonify
 import bcrypt
-import datetime
+from datetime import datetime
 
 
 def json_response(func):
