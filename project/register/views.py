@@ -6,7 +6,7 @@ import re
 @register_bp.route('/registration', methods=["GET", "POST"])
 def registration():
     if request.method == 'GET':
-        return render_template('registration/registration.html')
+        return render_template('register/registration.html')
     else:
         user_name = request.form.get('user_name')
         email = request.form.get('email')
@@ -16,13 +16,13 @@ def registration():
         registration_time = util.get_current_time()
         if password != confirm_password:
             flash("Passwords do not match!")
-            return render_template('registration/registration.html')
+            return render_template('register/registration.html')
         else:
             password_hash = util.hash_password(password)
 
         if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',email):
             flash("Email is not corect!")
-            return render_template('registration/registration.html')
+            return render_template('register/registration.html')
         else:
             queries.add_user(user_name, email, password_hash,registration_time)
             return redirect(url_for('app.index'))
