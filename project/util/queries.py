@@ -64,7 +64,7 @@ def users_emails():
         """
         SELECT email FROM users
         """)
-    # print(users_emails)
+    print(users_emails)
     return users_emails
 
 def user_data(email):

@@ -32,9 +32,15 @@
           
                           <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
-                            {% if error %}
-                                <p class="error">{{ error }}</p>
-                            {% endif %}
+                          {% with messages = get_flashed_messages() %}
+                          {% if messages %}
+                           <ul>
+                           {% for message in messages %}
+                             <li>{{ message }}</li>
+                           {% endfor %}
+                           </ul>
+                          {% endif %}
+                         {% endwith %}
           
                           <form class="mx-1 mx-md-4">
           
