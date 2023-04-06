@@ -25,7 +25,48 @@ function boardBuilder(board) {
             <div class="card m-3">
                 <h5 class="card-header" data-board-id="${board.id}">${board.title}</h5>
                 <div class="card-body">
-                    <a href="#" class="btn btn-primary" data-board-id="${board.id}">Show Cards</a>
+                    <a class="btn btn-primary board-toggle m-2" data-board-id="${board.id}">Show Cards</a>
+                    <div class="row">
+                <div class="col-sm-3">
+                    <div class="card m-1">
+                    <div class="card-body">
+                        <h5 class="card-title">New</h5>
+                        
+                    </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card m-1">
+                    <div class="card-body">
+                        <h5 class="card-title">In progress</h5>
+                        <div class="card m-1">
+                    <div class="card-body">
+                        <span>Task 1</span><span>dfa</span>
+                        
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="card m-1">
+                    <div class="card-body">
+                        <h5 class="card-title">Done</h5>
+                        
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="card m-1">
+                    <div class="card-body">
+                        <h5 class="card-title">Deleted</h5>
+                        
+                    </div>
+                    </div>
+                </div>
+                </div>
                 </div>
             </div>
             `;
@@ -34,4 +75,3 @@ function boardBuilder(board) {
 function cardBuilder(card) {
     return `<div class="card" data-card-id="${card.id}">${card.title}</div>`;
 }
-

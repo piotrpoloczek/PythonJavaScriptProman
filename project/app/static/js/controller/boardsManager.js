@@ -3,6 +3,7 @@ import {htmlFactory, htmlTemplates} from "../view/htmlFactory.js";
 import {domManager} from "../view/domManager.js";
 import {cardsManager} from "./cardsManager.js";
 
+
 export let boardsManager = {
     loadBoards: async function () {
         const boards = await dataHandler.getBoards();
@@ -11,7 +12,8 @@ export let boardsManager = {
             const content = boardBuilder(board);
             domManager.addChild("#root", content);
             domManager.addEventListener(
-                `.toggle-board-button[data-board-id="${board.id}"]`,
+                `[data-board-id="${board.id}"]`,
+                //`.toggle-board-button[data-board-id="${board.id}"]`,
                 "click",
                 showHideButtonHandler
             );
@@ -20,6 +22,7 @@ export let boardsManager = {
 };
 
 function showHideButtonHandler(clickEvent) {
+    console.log("button clicked");
     const boardId = clickEvent.target.dataset.boardId;
-    cardsManager.loadCards(boardId);
+    cardsManager.loadCards(boardId);   
 }

@@ -4,15 +4,16 @@ export let domManager = {
         if (parent) {
             parent.insertAdjacentHTML("beforeend", childContent);
         } else {
-            console.error("could not find such html element: " + parentIdentifier);
+            console.error("could not find such html element for adding child: " + parentIdentifier);
         }
     },
     addEventListener(parentIdentifier, eventType, eventHandler) {
         const parent = document.querySelector(parentIdentifier);
         if (parent) {
             parent.addEventListener(eventType, eventHandler);
+            console.log("added");
         } else {
-            console.error("could not find such html element: " + parentIdentifier);
+            console.error("could not find such html element for event listener: " + parentIdentifier);
         }
     },
 };
