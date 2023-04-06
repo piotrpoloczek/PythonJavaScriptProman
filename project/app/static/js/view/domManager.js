@@ -11,7 +11,7 @@ export let domManager = {
         const parent = document.querySelector(parentIdentifier);
         if (parent) {
             parent.addEventListener(eventType, eventHandler);
-            console.log("added");
+            console.log("added" + parent);
         } else {
             console.error("could not find such html element for event listener: " + parentIdentifier);
         }
