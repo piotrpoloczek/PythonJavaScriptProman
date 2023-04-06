@@ -35,7 +35,8 @@ CREATE TABLE statuses (
 CREATE TABLE boards (
     id          SERIAL PRIMARY KEY  NOT NULL,
     title       VARCHAR(200)        NOT NULL,
-    user_id     INTEGER             
+    user_id     INTEGER  
+    type        INTEGER             NOT NULL default 1           
 );
 
 CREATE TABLE cards (
@@ -52,6 +53,14 @@ CREATE TABLE users (
     user_name           TEXT                NOT NULL,
     email VARCHAR(255)  UNIQUE              NOT NULL,
     password            VARCHAR(255)        NOT NULL);
+
+
+-- CREATE TABLE types (
+--     id                  SERIAL PRIMARY KEY  NOT NULL,
+--     registration_time   TIMESTAMP           NOT NULL,
+--     user_name           TEXT                NOT NULL,
+--     email VARCHAR(255)  UNIQUE              NOT NULL,
+--     password            VARCHAR(255)        NOT NULL);
 
 ---
 --- insert data
