@@ -33,10 +33,23 @@ def get_boards():
         """
     )
 
+def get_board(board_id):
+    # remove this code once you implement the database
+
+    matching_board = data_manager.execute_select(
+        """
+        SELECT * FROM boards
+        WHERE id = %(board_id)s
+        ;
+        """
+        , {"board_id": board_id})
+
+    return matching_board
+
 
 def get_cards_for_board(board_id):
     # remove this code once you implement the database
-    return [{"title": "title1", "id": 1}, {"title": "board2", "id": 2}]
+    # return [{"title": "title1", "id": 1}, {"title": "board2", "id": 2}]
 
     matching_cards = data_manager.execute_select(
         """
@@ -79,4 +92,11 @@ def user_data(email):
     # print(user_data['password'])
     return user_data
 
-# user_data('piotr@piotr.pl')
+def add_board(title):
+    data_manager.execute_insert( 
+                """
+                INSERT into 
+                boards (title)
+                values 
+                (%(title)s)"""
+                , {'title': title})
