@@ -21,6 +21,7 @@ DROP TABLE IF EXISTS statuses CASCADE;
 DROP TABLE IF EXISTS boards CASCADE;
 DROP TABLE IF EXISTS cards;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS boards_types;
 
 
 ---
@@ -35,7 +36,7 @@ CREATE TABLE statuses (
 CREATE TABLE boards (
     id          SERIAL PRIMARY KEY  NOT NULL,
     title       VARCHAR(200)        NOT NULL,
-    user_id     INTEGER  
+    user_id     INTEGER,  
     type        INTEGER             NOT NULL default 1           
 );
 
@@ -55,17 +56,19 @@ CREATE TABLE users (
     password            VARCHAR(255)        NOT NULL);
 
 
--- CREATE TABLE types (
---     id                  SERIAL PRIMARY KEY  NOT NULL,
---     registration_time   TIMESTAMP           NOT NULL,
---     user_name           TEXT                NOT NULL,
---     email VARCHAR(255)  UNIQUE              NOT NULL,
---     password            VARCHAR(255)        NOT NULL);
+CREATE TABLE boards_types (
+    id       SERIAL PRIMARY KEY     NOT NULL,
+    title    VARCHAR(200)           NOT NULL
+    );
 
 ---
 --- insert data
 ---
+--  1 - public / 2 - private
+INSERT INTO boards_types(title) VALUES ('public'); 
+INSERT INTO boards_types(title) VALUES ('private');
 
+--  1 - new / 2 - in progress / 3 - testing / 4 - done
 INSERT INTO statuses(title) VALUES ('new');
 INSERT INTO statuses(title) VALUES ('in progress');
 INSERT INTO statuses(title) VALUES ('testing');
