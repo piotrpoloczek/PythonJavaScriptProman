@@ -26,7 +26,7 @@ function boardBuilder(board) {
                 <h5 class="card-header" data-board-id="${board.id}">${board.title}</h5>
                 <div class="card-body">
                     <a class="btn btn-primary board-toggle m-2" data-board-id="${board.id}">Show Cards</a>
-                    <div class="row">
+                <div class="row  div-cards" data-board-id="${board.id}">
                 <div class="col-sm-3">
                     <div class="card m-1">
                     <div class="card-body">
