@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, Request
 from api_board import api_board_bp
 from util.util import json_response
 from util import queries
@@ -27,3 +27,10 @@ def get_cards_for_board(board_id: int):
     :param board_id: id of the parent board
     """
     return queries.get_cards_for_board(board_id)
+
+
+@api_board_bp.route("/boards/board")
+@json_response
+def post_board():
+    board_title = request.json()
+    return board_title, 201

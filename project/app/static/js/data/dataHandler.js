@@ -35,6 +35,17 @@ async function apiGet(url) {
 }
 
 async function apiPost(url, payload) {
+    let response = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify({
+            title: 'new board',
+        }),
+        headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+    .then((response) => response.json())
+    .then((json) => console.log(json));
 }
 
 async function apiDelete(url) {
