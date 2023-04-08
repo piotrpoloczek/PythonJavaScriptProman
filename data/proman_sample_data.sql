@@ -17,10 +17,11 @@
     --- drop tables
     ---
 
-    DROP TABLE IF EXISTS statuses CASCADE;
-    DROP TABLE IF EXISTS boards CASCADE;
-    DROP TABLE IF EXISTS cards;
-    DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS statuses CASCADE;
+DROP TABLE IF EXISTS boards CASCADE;
+DROP TABLE IF EXISTS cards;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS boards_types;
 
 
     ---
@@ -32,12 +33,16 @@
         title    VARCHAR(200)           NOT NULL
     );
 
-    CREATE TABLE boards (
-        id          SERIAL PRIMARY KEY  NOT NULL,
-        title       VARCHAR(200)        NOT NULL,
-        user_id     INTEGER,
-        type        INTEGER             NOT NULL default 1           
-    );
+CREATE TABLE boards (
+    id          SERIAL PRIMARY KEY  NOT NULL,
+    title       VARCHAR(200)        NOT NULL,
+<<<<<<< HEAD
+    user_id     INTEGER,  
+=======
+    user_id     INTEGER,
+>>>>>>> development
+    type        INTEGER             NOT NULL default 1           
+);
 
     CREATE TABLE cards (
         id          SERIAL PRIMARY KEY  NOT NULL,
@@ -55,22 +60,36 @@
         password            VARCHAR(255)        NOT NULL);
 
 
-    CREATE TABLE board_types (
-        id       SERIAL PRIMARY KEY     NOT NULL,
-        title    VARCHAR(200)           NOT NULL
+<<<<<<< HEAD
+CREATE TABLE boards_types (
+    id       SERIAL PRIMARY KEY     NOT NULL,
+    title    VARCHAR(200)           NOT NULL
     );
+=======
+CREATE TABLE board_types (
+    id       SERIAL PRIMARY KEY     NOT NULL,
+    title    VARCHAR(200)           NOT NULL
+);
+>>>>>>> development
 
-    ---
-    --- insert data
-    ---
+---
+--- insert data
+---
+--  1 - public / 2 - private
+INSERT INTO boards_types(title) VALUES ('public'); 
+INSERT INTO boards_types(title) VALUES ('private');
 
-    INSERT INTO board_types(title) VALUES ('public');
-    INSERT INTO board_types(title) VALUES ('private');
+<<<<<<< HEAD
+--  1 - new / 2 - in progress / 3 - testing / 4 - done
+=======
+INSERT INTO board_types(title) VALUES ('public');
+INSERT INTO board_types(title) VALUES ('private');
 
-    INSERT INTO statuses(title) VALUES ('new');
-    INSERT INTO statuses(title) VALUES ('in progress');
-    INSERT INTO statuses(title) VALUES ('testing');
-    INSERT INTO statuses(title) VALUES ('done');
+>>>>>>> development
+INSERT INTO statuses(title) VALUES ('new');
+INSERT INTO statuses(title) VALUES ('in progress');
+INSERT INTO statuses(title) VALUES ('testing');
+INSERT INTO statuses(title) VALUES ('done');
 
     INSERT INTO boards(title) VALUES ('Board 1');
     INSERT INTO boards(title) VALUES ('Board 2');
