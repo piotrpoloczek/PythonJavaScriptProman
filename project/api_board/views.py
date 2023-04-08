@@ -40,11 +40,11 @@ def get_cards_for_board(board_id: int):
 
 
 @api_board_bp.route("/boards/", methods=["POST"])
-# @json_response
+@json_response
 def create_board():
     board_title = request.get_json()["title"]
     queries.add_board(board_title)
-    return board_title, 201
+    return {"title": board_title, "http_code": 201}
 
 
 @api_board_bp.route("/boards/<int:board_id>/cards/", methods=["POST"])
