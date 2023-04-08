@@ -23,7 +23,8 @@ export let dataHandler = {
     },
     createNewBoard: async function (boardTitle) {
         // creates new board, saves it and calls the callback function with its data
-        return await apiPost(`/api/boards/`, boardTitle);
+        boardTitle = "new tablssdse";
+        return await apiPost(`/api/boards/`, {"title": boardTitle});
 
     },
     createNewCard: async function (cardTitle, boardId, statusId) {
@@ -44,9 +45,9 @@ async function apiGet(url) {
 async function apiPost(url, payload) {
     let response = await fetch(url, {
         method: 'POST',
-        body: JSON.stringify({
-            title: 'new bosdasdas',
-        }),
+        body: JSON.stringify(
+            payload
+        ),
         headers: {
         'Content-type': 'application/json; charset=UTF-8',
         },

@@ -19,6 +19,10 @@ export let boardsManager = {
             );
         }
     },
+
+    createBoard: async function () {
+        
+    },
 };
 
 function showHideButtonHandler(clickEvent) {

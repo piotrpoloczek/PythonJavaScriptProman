@@ -1,11 +1,12 @@
 export const htmlTemplates = {
     board: 1,
-    card: 2
+    card: 2,
 }
 
 export const builderFunctions = {
     [htmlTemplates.board]: boardBuilder,
-    [htmlTemplates.card]: cardBuilder
+    [htmlTemplates.card]: cardBuilder,
+
 };
 
 export function htmlFactory(template) {
