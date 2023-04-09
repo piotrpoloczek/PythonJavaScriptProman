@@ -20,6 +20,14 @@ def get_boards():
     """
     return queries.get_boards()
 
+@api_board_bp.route("/statuses")
+@json_response
+def get_satatuses():
+    """
+    All the statuses
+    """
+    return queries.get_statuses()
+
 @api_board_bp.route("/boards/<int:board_id>/")
 @json_response
 def get_board(board_id: int):
@@ -29,6 +37,13 @@ def get_board(board_id: int):
     """
     return queries.get_board(board_id)
 
+@api_board_bp.route("/cards/<int:card_id>/")
+@json_response
+def get_card(card_id: int):
+    """
+    """
+    return queries.get_card(card_id)
+
 @api_board_bp.route("/boards/<int:board_id>/cards/")
 @json_response
 def get_cards_for_board(board_id: int):
@@ -37,6 +52,13 @@ def get_cards_for_board(board_id: int):
     :param board_id: id of the parent board
     """
     return queries.get_cards_for_board(board_id)
+
+@api_board_bp.route("/status/<int:status_id>")
+@json_response
+def get_status(status_id: int):
+    """
+    """
+    return queries.get_status(status_id)
 
 
 @api_board_bp.route("/boards/", methods=["POST"])
@@ -48,8 +70,10 @@ def create_board():
 
 
 @api_board_bp.route("/boards/<int:board_id>/cards/", methods=["POST"])
-# @json_response
-# def create_board():
-#     board_title = request.get_json()["title"]
-#     queries.add_board(board_title)
-#     return board_title, 201
+@json_response
+def create_card():
+    card_title = request.get_json()["title"]
+    board_id = request.get_json()["board_id"]
+    status_id = request.get_json()["status_id"]
+    queries.add_card(card_title, board_id, status_id)
+    return card_title, 201
