@@ -23,7 +23,6 @@ export let dataHandler = {
     },
     createNewBoard: async function (boardTitle) {
         // creates new board, saves it and calls the callback function with its data
-        boardTitle = "new tablssdse";
         return await apiPost(`/api/boards/`, {"title": boardTitle});
 
     },
