@@ -69,11 +69,13 @@ def create_board():
     return board_title, 201
 
 
-@api_board_bp.route("/boards/<int:board_id>/cards/", methods=["POST"])
+@api_board_bp.route("/boards/cards/", methods=["POST"])
 @json_response
 def create_card():
+    data = request.get_json()
     card_title = request.get_json()["title"]
     board_id = request.get_json()["board_id"]
+    card_order = request.get_json()["card_order"]
     status_id = request.get_json()["status_id"]
-    queries.add_card(card_title, board_id, status_id)
-    return card_title, 201
+    queries.add_card(card_title, board_id, status_id, card_order)
+    return data, 201

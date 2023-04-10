@@ -123,8 +123,6 @@ def user_data(email):
         ;
         """
         , {"email": email}, fetchall=None)
-    # print(user_data)
-    # print(user_data['password'])
     return user_data
 
 def add_board(title):
@@ -136,11 +134,11 @@ def add_board(title):
                 (%(title)s)"""
                 , {'title': title})
 
-def add_card(board_id, status_id, title):
+def add_card(board_id, status_id, title, card_order):
     data_manager.execute_insert( 
                 """
                 INSERT into 
-                card (board_id, status_id, title)
+                cards (board_id, status_id, title, card_order)
                 values 
-                (%(board_id)s, %(status_id)s, %(title)s)"""
-                , {'board_id': board_id, 'status_id': status_id, 'title': title})
+                (%(board_id)s, %(status_id)s, %(title)s, %(card_order)s)"""
+                , {'board_id': board_id, 'status_id': status_id, 'title': title, 'card_order': card_order})
