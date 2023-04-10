@@ -73,9 +73,9 @@ def create_board():
 @json_response
 def create_card():
     data = request.get_json()
-    card_title = request.get_json()["title"]
     board_id = request.get_json()["board_id"]
-    card_order = request.get_json()["card_order"]
     status_id = request.get_json()["status_id"]
-    queries.add_card(card_title, board_id, status_id, card_order)
+    title = request.get_json()["title"]
+    card_order = request.get_json()["card_order"]
+    queries.add_card(board_id, status_id, title, card_order)
     return data, 201
