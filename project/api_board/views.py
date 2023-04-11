@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify, json
+from flask import Flask, render_template, request, redirect, url_for, jsonify, json, Request
 from api_board import api_board_bp
 from util.util import json_response
 from util import queries
@@ -53,6 +53,11 @@ def get_cards_for_board(board_id: int):
     """
     return queries.get_cards_for_board(board_id)
 
+### example get column
+@api_board_bp.route("/boards/<int:board_id>/column/")
+@api_board_bp.route("/boards/<int:board_id>/column/<int:column_id>/cards/")
+
+
 @api_board_bp.route("/status/<int:status_id>")
 @json_response
 def get_status(status_id: int):
@@ -62,11 +67,11 @@ def get_status(status_id: int):
 
 
 @api_board_bp.route("/boards/", methods=["POST"])
-# @json_response
+@json_response
 def create_board():
     board_title = request.get_json()["title"]
     queries.add_board(board_title)
-    return board_title, 201
+    return {"title": board_title, "http_code": 201}
 
 
 @api_board_bp.route("/boards/cards/", methods=["POST"])
@@ -79,3 +84,5 @@ def create_card():
     card_order = request.get_json()["card_order"]
     queries.add_card(board_id, status_id, title, card_order)
     return data, 201
+
+

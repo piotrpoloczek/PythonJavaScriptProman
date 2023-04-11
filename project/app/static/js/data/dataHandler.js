@@ -4,7 +4,7 @@ export let dataHandler = {
     },
     getBoard: async function (boardId) {
         // the board is retrieved and then the callback function is called with the board
-        return await apiGet(`/api/boards/${boardId}`);
+        return await apiGet(`/api/boards/${boardId}/`);
     },
     getStatuses: async function () {
         // the statuses are retrieved and then the callback function is called with the statuses
@@ -23,7 +23,7 @@ export let dataHandler = {
     },
     createNewBoard: async function (boardTitle) {
         // creates new board, saves it and calls the callback function with its data
-        return await apiPost(`/api/boards/`);
+        return await apiPost(`/api/boards/`, {"title": boardTitle});
 
     },
     createNewCard: async function (cardTitle, boardId, statusId) {
@@ -42,7 +42,17 @@ async function apiGet(url) {
 }
 
 async function apiPost(url, payload) {
-    
+    let response = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(
+            payload
+        ),
+        headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+    .then((response) => response.json())
+    .then((json) => console.log(json));
 }
 
 async function apiDelete(url) {
