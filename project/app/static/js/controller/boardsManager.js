@@ -28,5 +28,5 @@ export let boardsManager = {
 function showHideButtonHandler(clickEvent) {
     console.log("button clicked");
     const boardId = clickEvent.target.dataset.boardId;
-    cardsManager.loadCards(boardId);   
+    cardsManager.loadCards(boardId);
 }
