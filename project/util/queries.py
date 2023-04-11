@@ -1,22 +1,25 @@
 from util import data_manager
 
+# chyba nie potrzebne
+# def get_card_status(status_id):
+#     """
+#     Find the first status matching the given id
+#     :param status_id:
+#     :return: str
+#     """
+#     status = data_manager.execute_select(
+#         """
+#         SELECT * FROM statuses as s
+#         WHERE s.id = %(status_id)s
+#         ;
+#         """
+#         , {"status_id": status_id})
 
-def get_card_status(status_id):
-    """
-    Find the first status matching the given id
-    :param status_id:
-    :return: str
-    """
-    status = data_manager.execute_select(
-        """
-        SELECT * FROM statuses s
-        WHERE s.id = %(status_id)s
-        ;
-        """
-        , {"status_id": status_id})
+#     return status
 
-    return status
-
+# do przerobienia tak zeby obslugiwalo wszyskie get()
+def get_everything(table_name):
+    pass
 
 def get_boards():
     """
