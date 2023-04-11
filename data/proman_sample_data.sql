@@ -54,6 +54,13 @@ CREATE TABLE boards (
         user_name           TEXT                NOT NULL,
         email VARCHAR(255)  UNIQUE              NOT NULL,
         password            VARCHAR(255)        NOT NULL);
+        
+    CREATE TABLE column (
+        id          SERIAL PRIMARY KEY  NOT NULL,
+        board_id    INTEGER             NOT NULL,
+        title       VARCHAR (200)       NOT NULL,
+        column_order  INTEGER             NOT NULL
+    );
 
 
 CREATE TABLE boards_types (
