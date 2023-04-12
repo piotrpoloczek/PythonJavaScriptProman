@@ -44,6 +44,7 @@ CREATE TABLE boards (
         id          SERIAL PRIMARY KEY  NOT NULL,
         board_id    INTEGER             NOT NULL,
         status_id   INTEGER             NOT NULL,
+        column_id   INTEGER             NOT NULL
         title       VARCHAR (200)       NOT NULL,
         card_order  INTEGER             NOT NULL
     );
@@ -53,13 +54,14 @@ CREATE TABLE boards (
         registration_time   TIMESTAMP           NOT NULL,
         user_name           TEXT                NOT NULL,
         email VARCHAR(255)  UNIQUE              NOT NULL,
-        password            VARCHAR(255)        NOT NULL);
+        password            VARCHAR(255)        NOT NULL
+    );
         
-    CREATE TABLE column (
+    CREATE TABLE columns (
         id          SERIAL PRIMARY KEY  NOT NULL,
         board_id    INTEGER             NOT NULL,
         title       VARCHAR (200)       NOT NULL,
-        column_order  INTEGER             NOT NULL
+        column_order  INTEGER           NOT NULL
     );
 
 
