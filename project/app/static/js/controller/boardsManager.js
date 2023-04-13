@@ -30,8 +30,9 @@ export let boardsManager = {
     },
 };
 
-function showHideButtonHandler(clickEvent) {
+async function showHideButtonHandler(clickEvent) {
     console.log("button clicked");
-    const boardId = clickEvent.target.dataset.boardId;
+    const boardId = await clickEvent.currentTarget.dataset.boardId;
+    console.log(boardId);
     cardsManager.loadCards(boardId);
 }

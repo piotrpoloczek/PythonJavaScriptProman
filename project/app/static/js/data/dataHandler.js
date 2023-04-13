@@ -30,6 +30,7 @@ async function apiGet(url) {
     let response = await fetch(url, {
         method: "GET",
     });
+    return await response.json();
     if (response.ok) {
         return await response.json();
     }
