@@ -34,5 +34,5 @@ async function showHideButtonHandler(clickEvent) {
     console.log("button clicked");
     const boardId = await clickEvent.currentTarget.dataset.boardId;
     console.log(boardId);
-    cardsManager.loadCards(boardId);
+    columnManager.loadColumn(boardId);
 }
