@@ -23,6 +23,9 @@ export function htmlFactory(template) {
 };
 
 function columnBuilder(column) {
+
+    const buttonaddCard = column.id == 1 ? `<button class="btn btn-primary" type="button" align="right" data-board-id="${column.id}">Add card</button>` : ``;
+    
     return `
                 <div class="col-sm-4" data-column-id="${column.id}">
                     <div class="card m-2">
@@ -30,10 +33,8 @@ function columnBuilder(column) {
                         <div class="col-sm-9">
                             <h5>${column.title}</h5>
                         </div>
-                            <div class="col-sm-3" data-board-id="${column.id}">
-                                <button class="btn btn-primary" type="button" align="right" data-board-id="${column.id}">
-                                    Add card
-                                </button>
+                            <div class="col-sm-3" id="div-button" data-board-id="${column.id}">
+                                ${buttonaddCard}
                             </div>
                         </div>
                         <div class="card-body" data-column-id="${column.id}">
