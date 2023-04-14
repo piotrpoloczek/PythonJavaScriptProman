@@ -74,7 +74,7 @@ function cardBuilder(card) {
                         <h5 contenteditable="true">${card.title}</h5>
                     </div>
                         <div class="col-sm-3" id="div-button" data-board-id="${card.id}">
-                            <button class="btn btn-primary" type="button" align="right" data-card-id="${card.id}">delete</button>
+                        <button class="btn btn-primary" type="button" id="delete-card" align="right" data-card-id="${card.id}">delete</button>
                         </div>
                     </div>
                     <div class="card-body" id="cards" style="cursor: move;" data-card-id="${card.id}">
@@ -83,3 +83,4 @@ function cardBuilder(card) {
             </div>`;
 };
 
+// <button class="btn btn-primary" type="button" align="right" data-card-id="${card.id}"><a href="api/cards/${card.id}/delete">delete</a></button>

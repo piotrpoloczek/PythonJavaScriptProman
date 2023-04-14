@@ -20,9 +20,13 @@ export let dataHandler = {
         // creates new board, saves it and calls the callback function with its data
         return await apiPost(`/api/boards/`,{"title": boardTitle});
     },
-    createNewCard: async function (cardTitle, boardId, statusId) {
+    createNewCard: async function (cardTitle, boardId) {
         // creates new card, saves it and calls the callback function with its data
         return await apiPost(`/api/boards/${boardId}/cards/`);
+    },
+    deleteCard: async function (cardId) {
+        // delete card
+        return await apiDelete(`/api/cards/${cardId}/delete`);
     },
 };  
 
@@ -51,9 +55,32 @@ async function apiPost(url, payload) {
 }
 
 async function apiDelete(url) {
+    try {
+        let response = await fetch(url, {
+        method: 'DELETE',
+        body: JSON.stringify(
+            payload
+        ),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+        })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+
+        if (response.ok) {
+        console.log(`DELETE request to ${url} successful.`);
+        } else {
+        console.error(`DELETE request to ${url} failed with status ${response.status}.`);
+        }
+    } catch (error) {
+        console.error(`An error occurred while making DELETE request to ${url}:`, error);
+    }   
 }
 
 async function apiPut(url) {
+
+
 }
 
 async function apiPatch(url) {

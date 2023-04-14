@@ -47,7 +47,6 @@ def get_cards_for_board(board_id: int):
     return queries.get_everything_by_id('cards','board_id',board_id)
 
 
-### example get column
 @api_board_bp.route("/boards/<int:board_id>/columns/")
 @json_response
 def get_columns_for_board(board_id: int):
@@ -96,3 +95,10 @@ def create_card():
     print(card_order)
     queries.add_card(column_id, title, card_order)
     return data, 201
+
+@api_board_bp.route("/cards/<int:card_id>/delete")
+@json_response
+def delete_card(card_id: int):
+    return queries.delete(card_id)
+    # return queries.delete('cards',card_id)
+    

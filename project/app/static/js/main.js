@@ -40,8 +40,17 @@ function init() {
     let saveBoardButton = document.querySelector("button#save-board");
     saveBoardButton.addEventListener("click", saveBoard);
 
+// delete card button
+    // function deleteCard(event){
+    //     var card_id = event.target.dataset.cardId;
+    //     console.log("delete card"+ card_id)
+    //     dataHandler.deleteCard(card_id)
+    // };
 
-    
+    // let deleteCardButton = document.querySelector("button#delete-card");
+    // deleteCardButton.addEventListener("click", deleteCard);
+
+// dragging cards
     const draggables = document.querySelectorAll('.card-m-2')
     const containers = document.querySelectorAll('.col-sm-4')
 

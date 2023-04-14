@@ -20,6 +20,11 @@
   height: 0px;
 }
 
+.alert{
+  list-style: none; 
+  color: red;
+}
+
 .card-m-2.dragging{
   opacity: .5;
 }
