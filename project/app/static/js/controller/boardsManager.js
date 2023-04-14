@@ -31,29 +31,17 @@ export let boardsManager = {
 };
 
 async function showHideButtonHandler(clickEvent) {
-    console.log("button clicked");
-    
     const boardId = await clickEvent.currentTarget.dataset.boardId;
     const currentTargetElement = await clickEvent.currentTarget;
-    let boardElement = document.querySelector(`#div-cards[data-board-id="${boardId}"]`)
-    console.log(currentTargetElement)
-    if (currentTargetElement.classList.contains("open")){
-        currentTargetElement.classList.remove("open");
-        currentTargetElement.classList.add("closed")
-        
-        console.log(boardElement)
-        boardElement.innerHTML = "";
-        boardElement.classList.remove("height-500");
-        boardElement.classList.add("height-0")
-    } else {
-        boardElement.classList.remove("height-0");
-        boardElement.classList.add("height-500")
-        currentTargetElement.classList.add("open");
-        currentTargetElement.classList.remove("closed");
-        let divCards = document.querySelector(`#div-cards[data-board-id="${boardId}"]`);
-        divCards.classList.add("height-500");
-        console.log(boardId);
+    const boardElement = document.querySelector(`#div-cards[data-board-id="${boardId}"]`)
 
+    if (currentTargetElement.classList.contains("open")){
+        domManager.changeBetweenCSSClasses(currentTargetElement, "open", "closed");
+        domManager.changeBetweenCSSClasses(boardElement, "height-500", "height-0");
+        boardElement.innerHTML = "";
+    } else {
+        domManager.changeBetweenCSSClasses(currentTargetElement, "closed", "open");
+        domManager.changeBetweenCSSClasses(boardElement, "height-0", "height-500");
         columnManager.loadColumn(boardId);
     }
     
