@@ -96,7 +96,3 @@ def create_card():
     print(card_order)
     queries.add_card(column_id, title, card_order)
     return data, 201
-
-
-
-

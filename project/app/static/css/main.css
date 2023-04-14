@@ -1,4 +1,21 @@
-#alert {
-    list-style: none; 
-    color: red;
+#boards {
+    background-color: green;
+}
+
+/* The heart of the matter */
+.testimonial-group > .row {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+  .testimonial-group > .row > .col-sm-6 {
+  flex: 0 0 auto;
+}
+
+.height-500 {
+  height: 500px;
+}
+
+.height-0 {
+  height: 0px;
 }
