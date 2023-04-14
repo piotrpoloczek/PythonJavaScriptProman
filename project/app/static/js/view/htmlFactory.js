@@ -31,7 +31,7 @@ function columnBuilder(column, isFirst) {
                     <div class="card m-2">
                     <div class="row card-header m-0">    
                         <div class="col-sm-9">
-                            <h5>${column.title}</h5>
+                            <h5 contenteditable="true">${column.title}</h5>
                         </div>
                             <div class="col-sm-3" id="div-button" data-board-id="${column.id}">
                                 ${buttonaddCard}
@@ -51,7 +51,7 @@ function boardBuilder(board) {
                 
                 <div class="row card-header m-0">
                     <div class="col-sm-11">
-                        <h5  data-board-id="${board.id}">${board.title}</h5>
+                        <h5 id="board-header" data-board-id="${board.id}" contenteditable="true">${board.title}</h5>
                     </div>
                     <div class="col-sm-1" data-board-id="${board.id}">
                         <button class="btn btn-primary closed" type="button" align="right" data-board-id="${board.id}">
@@ -71,7 +71,7 @@ function cardBuilder(card) {
     return `<div class="card m-2">
                 <div class="row card-header m-0">    
                     <div class="col-sm-9">
-                        <h5>${card.title}</h5>
+                        <h5 contenteditable="true">${card.title}</h5>
                     </div>
                         <div class="col-sm-3" id="div-button" data-board-id="${card.id}">
                             <button class="btn btn-primary" type="button" align="right" data-card-id="${card.id}">delete</button>

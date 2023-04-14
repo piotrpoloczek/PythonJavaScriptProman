@@ -1,7 +1,6 @@
 import {dataHandler} from "../data/dataHandler.js";
 import {htmlFactory, htmlTemplates} from "../view/htmlFactory.js";
 import {domManager} from "../view/domManager.js";
-import {cardsManager} from "./cardsManager.js";
 import { columnManager } from "./columnManager.js";
 
 
@@ -20,6 +19,12 @@ export let boardsManager = {
                     //`.toggle-board-button[data-board-id="${board.id}"]`,
                     "click",
                     showHideButtonHandler
+                );
+                domManager.addEventListener(
+                    `h5#board-header[data-board-id="${board.id}"]`,
+                    //`.toggle-board-button[data-board-id="${board.id}"]`,
+                    "input",
+                    changeText
                 );
             }; 
         }
@@ -43,6 +48,10 @@ async function showHideButtonHandler(clickEvent) {
         domManager.changeBetweenCSSClasses(currentTargetElement, "closed", "open");
         domManager.changeBetweenCSSClasses(boardElement, "height-0", "height-500");
         columnManager.loadColumn(boardId);
-    }
-    
+    }   
+}
+
+async function changeText(changeEvent) {
+    const elementHTML = await changeEvent.currentTarget;
+    console.log(elementHTML)
 }
