@@ -24,7 +24,7 @@ export function htmlFactory(template) {
 
 function columnBuilder(column, isFirst) {
 
-    const buttonaddCard = isFirst == true ? `<button class="btn btn-primary" type="button" align="right" data-board-id="${column.id}">Add card</button>` : ``;
+    const buttonaddCard = isFirst == true ? `<a href="#" class="btn btn-primary m-3" id="new-card" data-toggle="modal" data-target="#addCardModal" type="button" align="right" data-board-id="${column.id}">Add card</a></button>` : ``;
     
     return `
                 <div class="col-sm-4" data-column-id="${column.id}">

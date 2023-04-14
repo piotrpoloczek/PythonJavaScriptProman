@@ -22,7 +22,7 @@ export let dataHandler = {
     },
     createNewCard: async function (cardTitle, boardId) {
         // creates new card, saves it and calls the callback function with its data
-        return await apiPost(`/api/boards/${boardId}/cards/`);
+        return await apiPost(`/api/boards/${boardId}/cards/`, {"title": cardTitle});
     },
     deleteCard: async function (cardId) {
         // delete card
@@ -54,7 +54,7 @@ async function apiPost(url, payload) {
     .then((json) => console.log(json));
 }
 
-async function apiDelete(url) {
+async function apiDelete(url, payload) {
     try {
         let response = await fetch(url, {
         method: 'DELETE',

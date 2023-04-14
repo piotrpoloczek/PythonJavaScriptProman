@@ -30,7 +30,7 @@ function init() {
 
     function saveBoard() {
         console.log("print something modal works")
-        let titleField = document.querySelector("input#title-text");
+        let titleField = document.querySelector("input#title-board");
         console.log(titleField);
         let title = titleField.value;
         console.log("text from field: " + title);
@@ -39,6 +39,18 @@ function init() {
 
     let saveBoardButton = document.querySelector("button#save-board");
     saveBoardButton.addEventListener("click", saveBoard);
+
+    function saveCard() {
+        console.log("print something modal works")
+        let titleField = document.querySelector("input#title-card");
+        console.log(titleField);
+        let title = titleField.value;
+        console.log("text from field: " + title);
+        dataHandler.createNewCard(title);
+    };
+
+    let saveCardButton = document.querySelector("button#save-card");
+    saveCardButton.addEventListener("click", saveCard);
 
 // delete card button
     // function deleteCard(event){
