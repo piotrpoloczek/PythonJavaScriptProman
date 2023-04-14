@@ -1,3 +1,4 @@
-#boards {
-    background-color: green;
+#alert {
+    list-style: none; 
+    color: red;
 }

@@ -19,7 +19,6 @@ def get_boards():
     All the boards
     """
     return queries.get_everything('boards')
-    # return queries.get_boards()
 
 
 @api_board_bp.route("/boards/<int:board_id>/")

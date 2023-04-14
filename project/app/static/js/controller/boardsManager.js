@@ -25,8 +25,18 @@ export let boardsManager = {
         }
     },
 
-    createBoard: async function () {
-        
+    createBoard: async function () {   
+    //     function saveBoard() {
+    //     console.log("print something modal works")
+    //     let titleField = document.querySelector("input#title-text");
+    //     console.log(titleField);
+    //     let title = titleField.value;
+    //     console.log("text from field: " + title);
+    //     dataHandler.createNewBoard(title);
+    // };
+
+    // let saveBoardButton = document.querySelector("button#save-board");
+    // saveBoardButton.addEventListener("click", saveBoard);
     },
 };
 
