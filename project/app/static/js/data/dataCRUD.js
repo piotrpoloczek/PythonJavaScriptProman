@@ -8,6 +8,17 @@ export let dataCRUD = {
             return await response.json();
         }
     },
+
+    // apiPost: async function (url, payload) {
+    //     let response = await fetch(url,{
+    //         method: 'POST',
+    //         headers: {'Content-Type': 'application/json'},
+    //         body: JSON.stringify(payload)
+    //     })
+    //     if (response.ok){
+    //         return await response.json()
+    //     }
+    // },
     apiPost: async function (url, payload) {
         let response = await fetch(url, {
             method: 'POST',
@@ -22,7 +33,7 @@ export let dataCRUD = {
         .then((json) => console.log(json));
     },
     apiDelete: async function (url, payload) {
-        try {
+        // try {
             let response = await fetch(url, {
             method: 'DELETE',
             body: JSON.stringify(
@@ -35,14 +46,14 @@ export let dataCRUD = {
             .then((response) => response.json())
             .then((json) => console.log(json));
     
-            if (response.ok) {
-            console.log(`DELETE request to ${url} successful.`);
-            } else {
-            console.error(`DELETE request to ${url} failed with status ${response.status}.`);
-            }
-        } catch (error) {
-            console.error(`An error occurred while making DELETE request to ${url}:`, error);
-        }   
+            // if (response.ok) {
+            // console.log(`DELETE request to ${url} successful.`);
+            // } else {
+            // console.error(`DELETE request to ${url} failed with status ${response.status}.`);
+            // }
+        // } catch (error) {
+        //     console.error(`An error occurred while making DELETE request to ${url}:`, error);
+        // }   
     },
     apiPut: async function (url) {
         // function for send PUT request at specified endpoint in url

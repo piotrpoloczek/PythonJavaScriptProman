@@ -25,8 +25,15 @@ export let cardsManager = {
         console.log(titleField);
         let title = titleField.value;
         console.log("text from field: " + title);
-        cardsHandler.createNewCard(title);
-    }
+        let columnId = document.querySelector('.col-sm-4[data-column-id]').getAttribute('data-column-id');
+        console.log("patrz tuuuu" + columnId)
+        cardsHandler.createNewCard(title, columnId);
+    },
+    // deleteCard: async function () {
+    //     var card_id = clickEvent.currentTarget.dataset.cardId;
+    //     console.log("delete card: "+ card_id)
+    //     cardsHandler.deleteCard(card_id)
+    //     }
 };
 
 function deleteButtonHandler(clickEvent) {

@@ -9,5 +9,8 @@ export let eventListeners = {
 
         let saveCardButton = document.querySelector("button#save-card");
         saveCardButton.addEventListener("click", cardsManager.createCard);
+
+        // let deleteCardButton = document.querySelector("button#delete-card");
+        // deleteCardButton.addEventListener("click", cardsManager.deleteButtonHandler);
     }
 }

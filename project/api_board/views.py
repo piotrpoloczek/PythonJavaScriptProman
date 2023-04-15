@@ -85,7 +85,7 @@ def create_column():
     return data, 201
 
 
-@api_board_bp.route("/boards/columns/cards/", methods=["POST"])
+@api_board_bp.route("/boards/<column_id>/cards/", methods=["POST"])
 @json_response
 def create_card():
     # data = request.get_json()
@@ -97,7 +97,7 @@ def create_card():
     # return data, 201
     return {"title": card_title, "http_code": 201}
 
-@api_board_bp.route("/cards/<int:card_id>/delete")
+@api_board_bp.route("/cards/<int:card_id>/delete", methods=["DELETE"])
 @json_response
 def delete_card(card_id: int):
     return queries.delete(card_id)

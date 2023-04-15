@@ -1,5 +1,6 @@
 export let dragManager = {
     initDragManager: function() {
+        console.log('start dragging')
         const draggables = document.querySelectorAll('.card-m-2')
         const containers = document.querySelectorAll('.col-sm-4')
 
