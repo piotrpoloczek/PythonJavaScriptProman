@@ -1,30 +1,11 @@
+import { eventListeners } from "./controller/eventListeners.js";
 import { userManager } from "./controller/userManager.js";
 
 
 function init() {
 
     userManager.checkIfUser();
-
-    // function saveCard() {
-    //     console.log("print something modal works")
-    //     let titleField = document.querySelector("input#title-card");
-    //     console.log(titleField);
-    //     let title = titleField.value;
-    //     console.log("text from field: " + title);
-    //     dataHandler.createNewCard(title);
-    // };
-
-    
-
-// delete card button
-    // function deleteCard(event){
-    //     var card_id = event.target.dataset.cardId;
-    //     console.log("delete card"+ card_id)
-    //     dataHandler.deleteCard(card_id)
-    // };
-
-    // let deleteCardButton = document.querySelector("button#delete-card");
-    // deleteCardButton.addEventListener("click", deleteCard);
+    eventListeners.addGlobalEventListeners();
 
 // dragging cards
     // const draggables = document.querySelectorAll('.card-m-2')
