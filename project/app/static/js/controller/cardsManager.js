@@ -14,7 +14,7 @@ export let cardsManager = {
             domManager.addChild(`div#cards[data-column-id="${columnId}"]`, content);
             // add event listener to every button
             domManager.addEventListener(
-                `button#delete-card[data-card-id="${card.id}"]`,
+                `button#delete-card`,
                 "click",
                 deleteButtonHandler
             );
@@ -32,17 +32,12 @@ export let cardsManager = {
         console.log("patrz tuuuu" + columnId)
         cardsHandler.createNewCard(title, columnId);
     },
-    // deleteCard: async function () {
-    //     var card_id = clickEvent.currentTarget.dataset.cardId;
-    //     console.log("delete card: "+ card_id)
-    //     cardsHandler.deleteCard(card_id)
-    //     }
 };
 
-async function deleteButtonHandler(clickEvent) {
-    var card_id = clickEvent.currentTarget.dataset.cardId;
-    console.log("delete card: "+ card_id)
-    cardsHandler.deleteCard(card_id)
+async function deleteButtonHandler() {
+    var cardId = document.querySelector('.col-sm-3[data-card-id]').getAttribute('data-card-id');
+    console.log("delete card: "+ cardId)
+    cardsHandler.deleteCard(cardId)
 
     domManager.emptyElement('#root');
     await boardsManager.loadBoards(null)
