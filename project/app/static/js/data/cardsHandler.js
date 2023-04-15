@@ -11,9 +11,9 @@ export let cardsHandler = {
     getCardsByColumnId: async function (columnId) {
         return await dataCRUD.apiGet(`/api/boards/column/${columnId}/cards/`);
     },
-    createNewCard: async function (cardTitle, boardId) {
+    createNewCard: async function (cardTitle, columnId) {
         // creates new card, saves it and calls the callback function with its data
-        return await dataCRUD.apiPost(`/api/boards/${boardId}/cards/`, {"title": cardTitle});
+        return await dataCRUD.apiPost(`/api/boards/${columnId}/cards/`, {"title": cardTitle});
     },
     deleteCard: async function (cardId) {
         // delete card

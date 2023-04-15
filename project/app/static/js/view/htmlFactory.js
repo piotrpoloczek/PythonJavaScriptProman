@@ -73,7 +73,8 @@ function cardBuilder(card) {
                         <h5>${card.title}</h5>
                     </div>
                         <div class="col-sm-3" id="div-button" data-board-id="${card.id}">
-                        <button class="btn btn-primary" type="button" id="delete-card" align="right" data-card-id="${card.id}">delete</button>
+                        <button data-toggle="modal" data-target="#deleteCardModal" type="button" class="btn btn-primary" >
+                        <span class="bi bi-trash"></span></button>
                         </div>
                     </div>
             </div>`;
