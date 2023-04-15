@@ -1,4 +1,4 @@
-import {dataHandler} from "../data/dataHandler.js";
+import { boardsHandler } from "../data/boardsHandler.js";
 import {htmlFactory, htmlTemplates} from "../view/htmlFactory.js";
 import {domManager} from "../view/domManager.js";
 import { columnManager } from "./columnManager.js";
@@ -7,7 +7,7 @@ import { columnManager } from "./columnManager.js";
 export let boardsManager = {
     loadBoards: async function (userId) {
         console.log("get user id from flask: " + userId);
-        const boards = await dataHandler.getBoards();
+        const boards = await boardsHandler.getBoards();
         for (let board of boards) {
             console.log("board type: " + board.type + ", board userId: " + board.user_id);
             if (board.type == 1 || board.user_id == userId) {
@@ -29,19 +29,13 @@ export let boardsManager = {
             }; 
         }
     },
-
     createBoard: async function () {   
-    //     function saveBoard() {
-    //     console.log("print something modal works")
-    //     let titleField = document.querySelector("input#title-text");
-    //     console.log(titleField);
-    //     let title = titleField.value;
-    //     console.log("text from field: " + title);
-    //     dataHandler.createNewBoard(title);
-    // };
-
-    // let saveBoardButton = document.querySelector("button#save-board");
-    // saveBoardButton.addEventListener("click", saveBoard);
+        console.log("print something modal works")
+        let titleField = document.querySelector("input#title-board");
+        console.log(titleField);
+        let title = titleField.value;
+        console.log("text from field: " + title);
+        boardsHandler.createNewBoard(title);
     },
 };
 
