@@ -1,6 +1,8 @@
 import {htmlFactory, htmlTemplates} from "../view/htmlFactory.js";
 import {domManager} from "../view/domManager.js";
 import {cardsHandler} from "../data/cardsHandler.js";
+import { boardsHandler } from "../data/boardsHandler.js";
+import { boardsManager } from "./boardsManager.js";
 
 
 export let cardsManager = {
@@ -29,8 +31,11 @@ export let cardsManager = {
     }
 };
 
-function deleteButtonHandler(clickEvent) {
+async function deleteButtonHandler(clickEvent) {
     var card_id = clickEvent.currentTarget.dataset.cardId;
     console.log("delete card: "+ card_id)
     cardsHandler.deleteCard(card_id)
+    
+    domManager.emptyElement('#root');
+    await boardsManager.loadBoards(null)
 }
