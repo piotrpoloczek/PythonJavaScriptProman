@@ -2,6 +2,7 @@ import { boardsHandler } from "../data/boardsHandler.js";
 import {htmlFactory, htmlTemplates} from "../view/htmlFactory.js";
 import {domManager} from "../view/domManager.js";
 import { columnManager } from "./columnManager.js";
+import { dragManager } from "./dragManager.js";
 
 
 export let boardsManager = {
@@ -55,7 +56,8 @@ async function showHideButtonHandler(clickEvent) {
     } else {
         domManager.changeBetweenCSSClasses(currentTargetElement, "closed", "open");
         domManager.changeBetweenCSSClasses(boardElement, "height-0", "height-500");
-        columnManager.loadColumn(boardId);
+        await columnManager.loadColumn(boardId);
+        dragManager.initDragManager();
     }   
 }
 

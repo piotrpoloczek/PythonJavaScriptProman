@@ -18,6 +18,8 @@ export let cardsManager = {
                 "click",
                 deleteButtonHandler
             );
+
+            // TODO add event listener in order to rename
         }
     },
     createCard: async function () {

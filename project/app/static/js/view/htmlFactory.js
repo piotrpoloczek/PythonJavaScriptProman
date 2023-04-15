@@ -67,7 +67,7 @@ function boardBuilder(board) {
 };
 
 function cardBuilder(card) {
-    return `<div class="card m-2" draggable="true">
+    return `<div class="card m-2 card-draggable" draggable="true" style="cursor: move;">
                 <div class="row card-header m-0">    
                     <div class="col-sm-9">
                         <h5>${card.title}</h5>
@@ -75,9 +75,6 @@ function cardBuilder(card) {
                         <div class="col-sm-3" id="div-button" data-board-id="${card.id}">
                         <button class="btn btn-primary" type="button" id="delete-card" align="right" data-card-id="${card.id}">delete</button>
                         </div>
-                    </div>
-                    <div class="card-body" id="cards" style="cursor: move;" data-card-id="${card.id}">
-                        Description example
                     </div>
             </div>`;
 };
