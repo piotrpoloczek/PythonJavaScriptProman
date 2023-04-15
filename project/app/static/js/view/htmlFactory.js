@@ -29,16 +29,15 @@ function columnBuilder(column, isFirst) {
     return `
                 <div class="col-sm-4" data-column-id="${column.id}">
                     <div class="card m-2">
-                    <div class="row card-header m-0">    
-                        <div class="col-sm-9">
-                            <h5 contenteditable="true">${column.title}</h5>
-                        </div>
+                        <div class="row card-header m-0">    
+                            <div class="col-sm-9">
+                                <h5>${column.title}</h5>
+                            </div>
                             <div class="col-sm-3" id="div-button" data-board-id="${column.id}">
                                 ${buttonaddCard}
                             </div>
                         </div>
-                        <div class="card-body" id="cards" data-column-id="${column.id}">
-                        </div>
+                        <div class="card-body" id="cards" data-column-id="${column.id}"></div>
                     </div>
                 </div>
             `;
@@ -51,7 +50,7 @@ function boardBuilder(board) {
                 
                 <div class="row card-header m-0">
                     <div class="col-sm-11">
-                        <h5 id="board-header" data-board-id="${board.id}" contenteditable="true">${board.title}</h5>
+                        <h5 id="board-header" data-board-id="${board.id}">${board.title}</h5>
                     </div>
                     <div class="col-sm-1" data-board-id="${board.id}">
                         <button class="btn btn-primary closed" type="button" align="right" data-board-id="${board.id}">
@@ -68,10 +67,10 @@ function boardBuilder(board) {
 };
 
 function cardBuilder(card) {
-    return `<div class="card-m-2" draggable="true">
+    return `<div class="card m-2" draggable="true">
                 <div class="row card-header m-0">    
                     <div class="col-sm-9">
-                        <textarea disabled><h5>${card.title}</h5></textarea>
+                        <h5>${card.title}</h5>
                     </div>
                         <div class="col-sm-3" id="div-button" data-board-id="${card.id}">
                         <button class="btn btn-primary" type="button" id="delete-card" align="right" data-card-id="${card.id}">delete</button>
@@ -82,5 +81,3 @@ function cardBuilder(card) {
                     </div>
             </div>`;
 };
-
-// <button class="btn btn-primary" type="button" align="right" data-card-id="${card.id}"><a href="api/cards/${card.id}/delete">delete</a></button>

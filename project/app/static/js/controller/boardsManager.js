@@ -29,13 +29,17 @@ export let boardsManager = {
             }; 
         }
     },
-    createBoard: async function () {   
+    createBoard: async function () {
         console.log("print something modal works")
         let titleField = document.querySelector("input#title-board");
         console.log(titleField);
         let title = titleField.value;
         console.log("text from field: " + title);
         boardsHandler.createNewBoard(title);
+
+        // TODO add user id and use it in refreshing page by AJAX
+        domManager.emptyElement('#root');
+        await boardsManager.loadBoards(null);
     },
 };
 
