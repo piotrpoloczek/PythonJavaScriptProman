@@ -20,7 +20,7 @@ def get_cards_for_board(board_id: int):
     """
     return queries.get_everything_by_id('cards','board_id',board_id)
 
-@api_board_bp.route("/boards/column/<int:column_id>/cards/", methods=["GET"])
+@api_board_bp.route("/boards/columns/<int:column_id>/cards/", methods=["GET"])
 @json_response
 def get_cards_for_columns(column_id: int):
     """
@@ -30,11 +30,11 @@ def get_cards_for_columns(column_id: int):
     return queries.get_everything_by_id('cards','column_id',column_id)
 
 
-@api_board_bp.route("/boards/columns/cards/", methods=["POST"])
+@api_board_bp.route("/boards/columns/<int:column_id>/cards/", methods=["POST"])
 @json_response
-def create_card():
+def create_card(column_id):
     # data = request.get_json()
-    column_id = request.get_json()["column_id"]
+    # column_id = request.get_json()["column_id"]
     card_title = request.get_json()["title"]
     card_order = len(queries.get_everything_by_id('cards','column_id',column_id)) + 1
     print(card_order)
