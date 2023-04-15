@@ -24,7 +24,7 @@ export let dataCRUD = {
     apiDelete: async function (url) {
         try {
             let response = await fetch(url, {
-            method: 'DELETE',
+                method: 'DELETE',
             });
         } catch (error) {
             console.error(`An error occurred while making DELETE request to ${url}:`, error);
