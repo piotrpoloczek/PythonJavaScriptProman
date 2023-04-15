@@ -87,9 +87,9 @@ def create_column():
 
 @api_board_bp.route("/boards/<column_id>/cards/", methods=["POST"])
 @json_response
-def create_card():
+def create_card(column_id):
     # data = request.get_json()
-    column_id = request.get_json()["column_id"]
+    # column_id = request.get_json()["column_id"]
     card_title = request.get_json()["title"]
     card_order = len(queries.get_everything_by_id('cards','column_id',column_id)) + 1
     print(card_order)
