@@ -21,25 +21,11 @@ export let dataCRUD = {
         .then((response) => response.json())
         .then((json) => console.log(json));
     },
-    apiDelete: async function (url, payload) {
+    apiDelete: async function (url) {
         try {
             let response = await fetch(url, {
             method: 'DELETE',
-            body: JSON.stringify(
-                payload
-            ),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-            })
-            .then((response) => response.json())
-            .then((json) => console.log(json));
-    
-            if (response.ok) {
-            console.log(`DELETE request to ${url} successful.`);
-            } else {
-            console.error(`DELETE request to ${url} failed with status ${response.status}.`);
-            }
+            });
         } catch (error) {
             console.error(`An error occurred while making DELETE request to ${url}:`, error);
         }   

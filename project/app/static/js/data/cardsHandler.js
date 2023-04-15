@@ -17,6 +17,6 @@ export let cardsHandler = {
     },
     deleteCard: async function (cardId) {
         // delete card
-        return await dataCRUD.apiDelete(`/api/cards/${cardId}/delete`);
+        return await dataCRUD.apiDelete(`/api/boards/columns/cards/${cardId}`);
     },
 }
