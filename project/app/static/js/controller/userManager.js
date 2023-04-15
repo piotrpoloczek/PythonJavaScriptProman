@@ -1,4 +1,4 @@
-import { boardsManager } from "./boardsManager";
+import { boardsManager } from "./boardsManager.js";
 
 export let userManager = {
     checkIfUser: function () {
@@ -13,8 +13,7 @@ export let userManager = {
             boardsManager.loadBoards(userId);
         } else {
             // shows only public boards
-            boardsManager.loadBoards();
+            boardsManager.loadBoards(null);
         }
     },
 }
-    

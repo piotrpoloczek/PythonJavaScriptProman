@@ -1,4 +1,4 @@
-import { dataCRUD } from "./dataCRUD";
+import { dataCRUD } from "./dataCRUD.js";
 
 export let columnsHandler = {
     getColumnsByBoardId: async function (boardId) {

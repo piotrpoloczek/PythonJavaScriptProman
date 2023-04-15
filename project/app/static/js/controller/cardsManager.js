@@ -1,11 +1,11 @@
-import {dataHandler} from "../data/dataHandler.js";
 import {htmlFactory, htmlTemplates} from "../view/htmlFactory.js";
 import {domManager} from "../view/domManager.js";
+import {cardsHandler} from "../data/cardsHandler.js";
 
 
 export let cardsManager = {
     loadCards: async function (columnId) {
-        const cards = await dataHandler.getCardsByColumnId(columnId)
+        const cards = await cardsHandler.getCardsByColumnId(columnId)
         console.log(cards);
         for (let card of cards) {
             const cardBuilder = htmlFactory(htmlTemplates.card);

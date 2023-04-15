@@ -1,5 +1,4 @@
-import { boardsManager } from "./boardsManager";
-
+import { boardsManager } from "./boardsManager.js";
 
 let saveBoardButton = document.querySelector("button#save-board");
 saveBoardButton.addEventListener("click", boardsManager.createBoard);
