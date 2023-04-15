@@ -14,9 +14,9 @@ export let cardsManager = {
             domManager.addChild(`div#cards[data-column-id="${columnId}"]`, content);
             // add event listener to every button
             domManager.addEventListener(
-                `button#delete-card`,
+                `button#delete-button`,
                 "click",
-                deleteButtonHandler
+                deleteCardButton
             );
 
             // TODO add event listener in order to rename
@@ -34,7 +34,7 @@ export let cardsManager = {
     },
 };
 
-async function deleteButtonHandler() {
+async function deleteCardButton() {
     var cardId = document.querySelector('.col-sm-3[data-card-id]').getAttribute('data-card-id');
     console.log("delete card: "+ cardId)
     cardsHandler.deleteCard(cardId)

@@ -42,6 +42,6 @@ def create_card(column_id):
 @api_board_bp.route("/boards/columns/cards/<int:card_id>", methods=["DELETE"])
 @json_response
 def delete_card(card_id: int):
-    return queries.delete(card_id)
+    return queries.delete_card(card_id)
     # return queries.delete('cards',card_id)
     

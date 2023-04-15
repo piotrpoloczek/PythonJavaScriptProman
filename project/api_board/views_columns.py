@@ -23,3 +23,9 @@ def create_column():
     column_order = len(queries.get_everything_by_id('columns', 'board_id', board_id)) + 1
     queries.add_column(board_id, title, column_order)
     return data, 201
+
+@api_board_bp.route("/boards/columns/<int:column_id>", methods=["DELETE"])
+@json_response
+def delete_column(column_id: int):
+    # return queries.delete(column_id)
+    return queries.delete_column(column_id)
