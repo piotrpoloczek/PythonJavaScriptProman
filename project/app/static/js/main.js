@@ -4,7 +4,6 @@ import { dataHandler } from "./data/dataHandler.js";
 
 function init() {
 
-
     let userName = document.getElementById("user_name");
     console.log("userName: " + userName);
     
@@ -18,15 +17,7 @@ function init() {
         // shows only public boards
         boardsManager.loadBoards();
     }
-    // try {
-    //     let userName = document.getElementById("user_name");
-    //     console.log(userName.innerText);
-    // } catch(error) {
 
-    //     //console.log(error);
-    // }
-    
-    //boardsManager.loadBoards();
 
     function saveBoard() {
         console.log("print something modal works")

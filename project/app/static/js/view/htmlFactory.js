@@ -71,7 +71,7 @@ function cardBuilder(card) {
     return `<div class="card-m-2" draggable="true">
                 <div class="row card-header m-0">    
                     <div class="col-sm-9">
-                        <h5 contenteditable="true">${card.title}</h5>
+                        <textarea disabled><h5>${card.title}</h5></textarea>
                     </div>
                         <div class="col-sm-3" id="div-button" data-board-id="${card.id}">
                         <button class="btn btn-primary" type="button" id="delete-card" align="right" data-card-id="${card.id}">delete</button>
