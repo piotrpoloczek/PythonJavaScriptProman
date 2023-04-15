@@ -27,5 +27,6 @@ export let domManager = {
         } else {
             console.error("could not empty specified element: " + element);
         }
-    }
+    },
+    
 };
