@@ -29,7 +29,7 @@ export let boardsManager = {
                     changeText
                 );
 
-                openStaysOpen(openBoardId, board.id);
+                //openStaysOpen(openBoardId, board.id);
 
             }; 
         }
@@ -43,10 +43,10 @@ export let boardsManager = {
         boardsHandler.createNewBoard(title);
 
         // TODO add user id and use it in refreshing page by AJAX
-        refreshManager.getOpenBoards();
-        const openBoardId = refreshManager.getOpenBoards();
-        domManager.emptyElement('#root');
-        await boardsManager.loadBoards(null, openBoardId);
+        // refreshManager.getOpenBoards();
+        // const openBoardId = refreshManager.getOpenBoards();
+        // domManager.emptyElement('#root');
+        // await boardsManager.loadBoards(null, openBoardId);
     },
 };
 
