@@ -98,3 +98,12 @@ def delete_column(id):
 #         WHERE id = {id}
 #         '''
 #     return data_manager.execute_insert(select)
+
+def edit(column_id, card_id):
+    select = f'''
+        UPDATE cards SET
+        column_id = {column_id}
+        WHERE id = {card_id}
+        '''
+    return data_manager.execute_insert(select)
+
