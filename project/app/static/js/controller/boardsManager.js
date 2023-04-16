@@ -103,11 +103,11 @@ async function deleteBoardButton(clickEvent) {
     // var columnId = clickEvent.curentTarget.dataset.columnId
     let boardId = await clickEvent.currentTarget.dataset.boardId
     console.log("delete board: "+ boardId)
-    boardsHandler.deleteBoard(boardId)
+    await boardsHandler.deleteBoard(boardId)
 
-    // remove element from view
-    // let boardElement = document.querySelector(`.card m-3 full-board[data-board-id="${boardId}"]`)
-    // boardElement.remove()
+
+    let boardElement = document.querySelector(`.full-board[data-board-id="${boardId}"]`)
+    boardElement.remove()
 
     domManager.emptyElement('#root');
     await boardsManager.loadBoards(null)
