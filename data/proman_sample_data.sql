@@ -74,6 +74,9 @@ INSERT INTO boards_types(title) VALUES ('private');
 INSERT INTO boards(title) VALUES ('Board 1');
 INSERT INTO boards(title) VALUES ('Board 2');
 INSERT INTO boards(title) VALUES ('Board 3');
+INSERT INTO boards(title, user_id, type) VALUES ('Board 1 user 1', 1, 2);
+INSERT INTO boards(title, user_id, type) VALUES ('Board 2 user 2', 2, 2);
+INSERT INTO boards(title, user_id, type) VALUES ('Board 3 user 1', 1, 2);
 
 INSERT INTO columns VALUES (nextval('columns_id_seq'), 1, 'planning', 1);
 INSERT INTO columns VALUES (nextval('columns_id_seq'), 1, 'to do', 2);
