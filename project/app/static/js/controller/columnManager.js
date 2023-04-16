@@ -35,7 +35,4 @@ async function deleteColumnButton(clickEvent) {
     // remove element from board in view
     let columnElement = document.querySelector(`.col-sm-4[data-column-id="${columnId}"]`)
     columnElement.remove()
-
-    domManager.emptyElement('#root');
-    await boardsManager.loadBoards(null)
 }

@@ -31,7 +31,9 @@ export let cardsManager = {
         console.log("text from field: " + title);
         let columnId = document.querySelector('.col-sm-4[data-column-id]').getAttribute('data-column-id');
         console.log("patrz tuuuu" + columnId)
-        cardsHandler.createNewCard(title, columnId);
+        
+        let cardId = cardsHandler.createNewCard(title, columnId)
+        cardId.then(response => console.log(response));
 
         // get id from request after posting
         //await cardsHandler.getCard()

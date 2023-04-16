@@ -65,12 +65,13 @@ def add_column(board_id, title, column_order):
 
 
 def add_card(column_id, title, card_order):
-    data_manager.execute_insert( 
+    return data_manager.execute_insert( 
                 """
                 INSERT into 
                 cards (column_id, title, card_order)
                 values 
-                (%(column_id)s, %(title)s, %(card_order)s)"""
+                (%(column_id)s, %(title)s, %(card_order)s)
+                RETURNING id"""
                 , {'column_id': column_id, 'title': title, 'card_order': card_order})
 
 
