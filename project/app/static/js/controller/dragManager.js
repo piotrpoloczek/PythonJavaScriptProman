@@ -26,7 +26,7 @@ export let dragManager = {
                 const afterElement = this.getDragAfterElement(container, e.clientY)
                 const draggable = document.querySelector('.dragging')
                 if (afterElement == null){
-                container.appendChild(draggable)
+                    container.appendChild(draggable)
                 }
                 else{
                     container.insertBefore(draggable, afterElement)
