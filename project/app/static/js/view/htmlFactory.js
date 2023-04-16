@@ -53,7 +53,7 @@ function columnBuilder(column, isFirst) {
 
 function boardBuilder(board) {
     return `
-            <div class="card m-3">
+            <div class="card m-3 full-board" data-board-id="${board.id}">
                 
                 <div class="row card-header m-0">
                     <div class="col-sm-11">

@@ -31,7 +31,7 @@ CREATE TABLE boards (
     id          SERIAL PRIMARY KEY  NOT NULL,
     title       VARCHAR(200)        NOT NULL,
     user_id     INTEGER,
-    type        INTEGER             NOT NULL default 1           
+    type        INTEGER             NOT NULL default 1    
 );
 
 CREATE TABLE columns (

@@ -3,14 +3,15 @@ import {htmlFactory, htmlTemplates} from "../view/htmlFactory.js";
 import {domManager} from "../view/domManager.js";
 import { columnManager } from "./columnManager.js";
 import { dragManager } from "./dragManager.js";
+import { refreshManager } from "./refreshManager.js";
 
 
 export let boardsManager = {
-    loadBoards: async function (userId) {
+    loadBoards: async function (userId, openBoardId) {
         console.log("get user id from flask: " + userId);
         const boards = await boardsHandler.getBoards();
         for (let board of boards) {
-            console.log("board type: " + board.type + ", board userId: " + board.user_id);
+            console.log("board type: " + board.type + ", board userId: " + board.user_id + board.id);
             if (board.type == 1 || board.user_id == userId) {
                 const boardBuilder = htmlFactory(htmlTemplates.board);
                 const content = boardBuilder(board);
@@ -27,6 +28,9 @@ export let boardsManager = {
                     "input",
                     changeText
                 );
+
+                openStaysOpen(openBoardId, board.id);
+
             }; 
         }
     },
@@ -39,8 +43,10 @@ export let boardsManager = {
         boardsHandler.createNewBoard(title);
 
         // TODO add user id and use it in refreshing page by AJAX
+        refreshManager.getOpenBoards();
+        const openBoardId = refreshManager.getOpenBoards();
         domManager.emptyElement('#root');
-        await boardsManager.loadBoards(null);
+        await boardsManager.loadBoards(null, openBoardId);
     },
 };
 
@@ -50,18 +56,41 @@ async function showHideButtonHandler(clickEvent) {
     const boardElement = document.querySelector(`#div-cards[data-board-id="${boardId}"]`)
 
     if (currentTargetElement.classList.contains("open")){
-        domManager.changeBetweenCSSClasses(currentTargetElement, "open", "closed");
-        domManager.changeBetweenCSSClasses(boardElement, "height-500", "height-0");
-        boardElement.innerHTML = "";
+        hideAllBoard(currentTargetElement, boardElement);
     } else {
-        domManager.changeBetweenCSSClasses(currentTargetElement, "closed", "open");
-        domManager.changeBetweenCSSClasses(boardElement, "height-0", "height-500");
-        await columnManager.loadColumn(boardId);
-        dragManager.initDragManager();
+        await showAllBoard(currentTargetElement, boardElement, boardId);
     }   
 }
 
 async function changeText(changeEvent) {
     const elementHTML = await changeEvent.currentTarget;
     console.log(elementHTML)
+}
+
+function hideAllBoard(currentTargetElement, boardElement) {
+    domManager.changeBetweenCSSClasses(currentTargetElement, "open", "closed");
+    domManager.changeBetweenCSSClasses(boardElement, "height-500", "height-0");
+    boardElement.innerHTML = "";
+}
+
+async function showAllBoard(currentTargetElement, boardElement, boardId) {
+    domManager.changeBetweenCSSClasses(currentTargetElement, "closed", "open");
+    domManager.changeBetweenCSSClasses(boardElement, "height-0", "height-500");
+    await columnManager.loadColumn(boardId);
+    dragManager.initDragManager();
+}
+
+async function openStaysOpen(openBoardId, boardId) {
+    const boardElement = document.querySelector(`#div-cards[data-board-id="${boardId}"]`)
+    const currentTargetElement = document.querySelector(`button[data-board-id="${boardId}"]`)
+
+    if (openBoardId != null) {
+        console.log("open boards id: " + openBoardId)
+        console.log(openBoardId);
+        console.log("board id:       " + boardId)
+        if (openBoardId.includes(`${boardId}`)) {
+            console.log("yes includes")
+            await showAllBoard(currentTargetElement, boardElement, boardId);
+        }
+    }
 }
