@@ -58,19 +58,20 @@ function boardBuilder(board) {
             <div class="card m-3 full-board" data-board-id="${board.id}">
                 
                 <div class="row card-header m-0">
-                    <div class="col-sm-11">
+                    <div class="col-sm-10">
                         <h5 id="board-header" data-board-id="${board.id}">${board.title}</h5>
                     </div>
                     <div class="col-sm-1" data-board-id="${board.id}">
-                        <button class="btn btn-primary closed" type="button" align="right" data-board-id="${board.id}">
+                        <button class="btn btn-primary closed" type="button" data-board-id="${board.id}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
                             </svg>
                         </button>
-                    <div class="col-sm-3 div-button" data-board-id="${board.id}">
+                        </div>
+                    <div class="col-sm-1 div-button" data-board-id="${board.id}">
                         <button data-toggle="modal" type="button" class="btn btn-primary" >
                         <span class="bi bi-trash"></span></button>
-                        </div>
+                    </div>
                     </div>
                 </div>
 
