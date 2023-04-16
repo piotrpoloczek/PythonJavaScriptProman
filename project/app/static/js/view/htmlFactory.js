@@ -74,7 +74,7 @@ function boardBuilder(board) {
 };
 
 function cardBuilder(card) {
-    return `<div class="card m-2 card-draggable" draggable="true" style="cursor: move;">
+    return `<div class="card m-2 card-draggable" draggable="true" style="cursor: move;" data-card-id="${card.id}">
                 <div class="row card-header m-0">    
                     <div class="col-sm-9">
                         <h5>${card.title}</h5>
