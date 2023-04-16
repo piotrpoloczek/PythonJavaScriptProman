@@ -43,7 +43,7 @@ CREATE TABLE columns (
 
 CREATE TABLE cards (
     id          SERIAL PRIMARY KEY  NOT NULL,
-    column_id   INTEGER             NOT NULL,
+    column_id   INTEGER       REFERENCES columns(id) ON DELETE CASCADE ON UPDATE CASCADE,
     title       VARCHAR (200)       NOT NULL,
     card_order  INTEGER             NOT NULL
 );
