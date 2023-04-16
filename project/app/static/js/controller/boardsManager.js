@@ -27,6 +27,11 @@ export let boardsManager = {
                     "input",
                     boardsManagerFunc.changeText
                 );
+                domManager.addEventListener(
+                    `div.div-button[data-board-id="${board.id}"]`,
+                    "click",
+                    deleteBoardButton
+                ) 
 
                 boardsManagerFunc.openStaysOpen(openBoardId, board.id);
 

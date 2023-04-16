@@ -18,7 +18,7 @@ SET default_with_oids = false;
 ---
 DROP TABLE IF EXISTS boards CASCADE;
 DROP TABLE IF EXISTS columns CASCADE;
-DROP TABLE IF EXISTS cards;
+DROP TABLE IF EXISTS cards CASCADE;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS boards_types;
 
@@ -36,7 +36,7 @@ CREATE TABLE boards (
 
 CREATE TABLE columns (
     id          SERIAL PRIMARY KEY  NOT NULL,
-    board_id    INTEGER             NOT NULL,
+    board_id    INTEGER       REFERENCES columns(id) ON DELETE CASCADE ON UPDATE CASCADE,
     title       VARCHAR (200)       NOT NULL,
     column_order  INTEGER           NOT NULL
 );

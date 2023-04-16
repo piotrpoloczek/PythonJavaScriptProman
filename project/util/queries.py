@@ -93,6 +93,18 @@ def delete_column(id):
         , {'id':id}
     )
 
+def delete_board(id):
+    data_manager.execute_insert(
+        """
+        DELETE from columns
+        WHERE board_id = %(id)s;
+        
+        DELETE from boards
+        WHERE id = %(id)s
+        """
+        , {'id':id}
+    )
+
 # def delete(table_name,id):
 #     select = f'''
 #         DELETE from {table_name}
