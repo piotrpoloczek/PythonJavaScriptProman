@@ -1,7 +1,7 @@
 export let dragManager = {
     initDragManager: function() {
         const draggables = document.querySelectorAll('.card-draggable')
-        const containers = document.querySelectorAll('.col-sm-4')
+        const containers = document.querySelectorAll('.card-body')
 
         console.log("dragables: " + draggables);
         console.log(draggables)
@@ -12,6 +12,7 @@ export let dragManager = {
             draggable.addEventListener('dragstart', () => {
                 console.log('drag start')
                 draggable.classList.add('dragging')
+
             })
 
             draggable.addEventListener('dragend', () =>{

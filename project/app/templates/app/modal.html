@@ -62,7 +62,7 @@
   </div>
 </div>
 
-<div class="modal" id="deleteCardModal" tabindex="-1" role="dialog">
+<div class="modal" id="deleteModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -75,7 +75,28 @@
           <p>The process is irreversible.</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" id="delete-card" data-card-id="${card.id}">Delete card</button>
+          <button type="button" class="btn btn-primary" id="delete-button" data-dismiss="modal">Delete</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal" id="deleteColumnModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Column will be deleted</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>The process is irreversible.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="delete-column" data-dismiss="modal">Delete</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
         </div>
       </div>

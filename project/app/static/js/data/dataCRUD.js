@@ -9,16 +9,6 @@ export let dataCRUD = {
         }
     },
 
-    // apiPost: async function (url, payload) {
-    //     let response = await fetch(url,{
-    //         method: 'POST',
-    //         headers: {'Content-Type': 'application/json'},
-    //         body: JSON.stringify(payload)
-    //     })
-    //     if (response.ok){
-    //         return await response.json()
-    //     }
-    // },
     apiPost: async function (url, payload) {
         let response = await fetch(url, {
             method: 'POST',
