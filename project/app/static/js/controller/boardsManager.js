@@ -28,6 +28,11 @@ export let boardsManager = {
                     "input",
                     changeText
                 );
+                domManager.addEventListener(
+                    `div.div-button[data-board-id="${board.id}"]`,
+                    "click",
+                    deleteBoardButton
+                ) 
 
                 openStaysOpen(openBoardId, board.id);
 
@@ -92,4 +97,18 @@ async function openStaysOpen(openBoardId, boardId) {
             await showAllBoard(currentTargetElement, boardElement, boardId);
         }
     }
+}
+
+async function deleteBoardButton(clickEvent) {
+    // var columnId = clickEvent.curentTarget.dataset.columnId
+    let boardId = await clickEvent.currentTarget.dataset.boardId
+    console.log("delete board: "+ boardId)
+    boardsHandler.deleteBoard(boardId)
+
+    // remove element from view
+    // let boardElement = document.querySelector(`.card m-3 full-board[data-board-id="${boardId}"]`)
+    // boardElement.remove()
+
+    domManager.emptyElement('#root');
+    await boardsManager.loadBoards(null)
 }

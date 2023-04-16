@@ -6,6 +6,6 @@ export let columnsHandler = {
     },
     deleteColumn: async function (columnId) {
         // delete column
-        return await dataCRUD.apiDelete(`/api/boards/columns/${columnId}/delete`);
+        return await dataCRUD.apiDelete(`/api/boards/columns/${columnId}`);
     },
 }

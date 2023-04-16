@@ -86,10 +86,19 @@ def delete_card(id):
 def delete_column(id):
     data_manager.execute_insert(
         """
-        DELETE from cards
-        WHERE column_id = %(id)s;
-
         DELETE from columns
+        WHERE id = %(id)s
+        """
+        , {'id':id}
+    )
+
+def delete_board(id):
+    data_manager.execute_insert(
+        """
+        DELETE from columns
+        WHERE board_id = %(id)s;
+        
+        DELETE from boards
         WHERE id = %(id)s
         """
         , {'id':id}
