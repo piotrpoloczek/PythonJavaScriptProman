@@ -42,9 +42,12 @@ function columnBuilder(column, isFirst) {
                             <button data-toggle="modal" type="button" class="btn btn-primary" >
                             <span class="bi bi-trash"></span></button>
                             </div>
-                            <div class="col-sm-3 div-button" data-board-id="${column.id}">
-                            ${buttonaddCard} 
+                            <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-secondary" type="button">Button</button>
                             </div>
+                          </div>
                         </div>
                         <div class="card-body" id="cards" data-column-id="${column.id}"></div>
                     </div>
