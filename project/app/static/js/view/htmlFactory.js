@@ -33,7 +33,7 @@ function columnBuilder(column, isFirst) {
     
     return `
                 <div class="col-sm-4" data-column-id="${column.id}">
-                    <div class="card m-2">
+                    <div class="card m-1">
                         <div class="row card-header m-0"> 
                             <div class="col-sm-9">
                                 <h5>${column.title} </h5>
@@ -58,7 +58,7 @@ function boardBuilder(board) {
             <div class="card m-3 full-board" data-board-id="${board.id}">
                 
                 <div class="row card-header m-0">
-                    <div class="col-sm-10">
+                    <div class="col-sm-8">
                         <h5 id="board-header" data-board-id="${board.id}">${board.title}</h5>
                     </div>
                     <div class="col-sm-1" data-board-id="${board.id}">
@@ -71,6 +71,13 @@ function boardBuilder(board) {
                     <div class="col-sm-1 div-button" data-board-id="${board.id}">
                         <button data-toggle="modal" type="button" class="btn btn-primary" >
                         <span class="bi bi-trash"></span></button>
+                    </div>
+                    <div class="col-sm-1 div-button" data-board-id="${board.id}">
+                        <button data-toggle="modal" type="button" class="btn btn-primary" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+                        <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
+                        <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
+                        </svg>
                     </div>
                     </div>
                 </div>
