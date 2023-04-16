@@ -18,7 +18,7 @@ export let cardsManager = {
             const content = cardBuilder(card);
             domManager.addChild(`div#cards[data-column-id="${columnId}"]`, content);
             domManager.addEventListener(
-                `button#delete-button`,
+                `div.div-button[data-card-id="${card.id}"]`,
                 "click",
                 deleteCardButton
             );
@@ -39,12 +39,13 @@ export let cardsManager = {
     },
 };
 
-async function deleteCardButton() {
-    var cardId = document.querySelector('.card-draggable[data-card-id]').getAttribute('data-card-id');
+async function deleteCardButton(clickEvent) {
+    // var cardId = document.querySelector('.card-draggable[data-card-id]').getAttribute('data-card-id');
+    let cardId = await clickEvent.currentTarget.dataset.cardId
     console.log("delete card: "+ cardId)
     cardsHandler.deleteCard(cardId)
 
     // remove element from column in view
-    let cardElement = document.querySelector(`.card-draggable[data-card-id]`)
+    let cardElement = document.querySelector(`.card-draggable[data-card-id="${cardId}"]`)
     cardElement.remove()
 }
