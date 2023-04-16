@@ -30,8 +30,6 @@ function columnBuilder(column, isFirst) {
                                             <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
                                             </svg>
                                             </a></button>` : ``;
-    const buttonDeleteColumn = `<button data-toggle="modal" data-target="#deleteColumnModal" type="button" class="btn btn-primary">
-                                                <span class="bi bi-trash"></span></button>`
     
     return `
                 <div class="col-sm-4" data-column-id="${column.id}">
@@ -40,8 +38,12 @@ function columnBuilder(column, isFirst) {
                             <div class="col-sm-9">
                                 <h5>${column.title} </h5>
                             </div>
-                            <div class="col-sm-3" id="div-button" data-board-id="${column.id}">
-                            ${buttonDeleteColumn} ${buttonaddCard} 
+                            <div class="col-sm-3 div-button" data-column-id="${column.id}">
+                            <button data-toggle="modal" type="button" class="btn btn-primary" >
+                            <span class="bi bi-trash"></span></button>
+                            </div>
+                            <div class="col-sm-3 div-button" data-board-id="${column.id}">
+                            ${buttonaddCard} 
                             </div>
                         </div>
                         <div class="card-body" id="cards" data-column-id="${column.id}"></div>
