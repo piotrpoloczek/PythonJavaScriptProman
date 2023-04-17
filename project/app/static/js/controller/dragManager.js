@@ -50,12 +50,14 @@ export let dragManager = {
         
     },
     getDragAfterElement: function(container, y) {
-        const draggableElements = [...container.querySelectorAll('.card-m-2:not(.dragging)')]
+        const draggableElements = [...container.querySelectorAll('.card-draggable:not(.dragging)')]
+        console.log('draggableElements - ')
+        console.log(draggableElements)
 
         return draggableElements.reduce((closest, child)=> {
             const box = child.getBoundingClientRect()
             const offset = y - box.top - box.height / 2
-            console.log(box)
+            
             if (offset < 0 && offset > closest.offset){
                 return {offset: offset, element: child}
             }
