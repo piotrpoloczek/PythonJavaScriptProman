@@ -24,37 +24,27 @@ export function htmlFactory(template) {
 
 function columnBuilder(column, isFirst) {
 
-    const buttonaddCard = isFirst == true ? `<a href="#" class="btn btn-primary m-3" id="new-card" data-toggle="modal" data-target="#addCardModal" type="button" align="right" data-board-id="${column.id}">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
-                                            <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
-                                            <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
-                                            </svg>
-                                            </a></button>` : ``;
+    const buttonaddCard = isFirst == true ? `<button type="button" class="btn btn-primary add-card-button" data-column-id="${column.id}">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+                                                <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
+                                                <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
+                                                </svg>
+                                            </button>` : ``;
     
     return `
                 <div class="col-sm-4" data-column-id="${column.id}">
                     <div class="card m-1">
                         <div class="row card-header m-0"> 
-                            <div class="col-sm-8">
-                                <h5>${column.title} </h5>
-                            </div>
-                            <div class="col-sm-2 div-button-delete-column" data-board-id="${column.id}" data-column-id="${column.id}">
-                                <button type="button" class="btn btn-primary" >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
-                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="col-sm-3 div-button" data-board-id="${column.id}">
-                            ${buttonaddCard} 
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button">Button</button>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-sm-10">
+                            <h5 id="board-header" data-board-id="${column.id}">${column.title}</h5>
+                        </div>
+                        <div class="col-sm-1 div-button" data-board-id="${column.id}">
+                            <button data-toggle="modal" type="button" class="btn btn-primary" >
+                            <span class="bi bi-trash"></span></button>
+                        </div>
+                        <div class="col-sm-1 div-button" data-board-id="${column.id}">
+                            ${buttonaddCard}
+                        </div>
                         </div>
                         <div class="card-body" id="cards" data-column-id="${column.id}"></div>
                     </div>
@@ -89,8 +79,8 @@ function boardBuilder(board) {
                         <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
                         </svg>
                     </div>
-                    </div>
                 </div>
+            </div>
 
                 <div class="container-fluid testimonial-group"><div class="row" id="div-cards" data-board-id="${board.id}"></div></div>
             </div>
