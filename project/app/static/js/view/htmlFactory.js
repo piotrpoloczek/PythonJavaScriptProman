@@ -38,8 +38,8 @@ function columnBuilder(column) {
                                 <span class="bi bi-trash"></span></button>
                             </div>
                         </div>
-                        <div class="card-body row" id="cards" data-column-id="${column.id}">
-                            <div class="col-sm-8 card m-2 card-header">
+                        <div class="card-body" id="cards" data-column-id="${column.id}">
+                            <div class=" card m-2 card-header">
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control add-card-imput" placeholder="Add new task" aria-label="Recipient's username" aria-describedby="basic-addon2" data-column-id="${column.id}">
                                     <div class="input-group-append">
