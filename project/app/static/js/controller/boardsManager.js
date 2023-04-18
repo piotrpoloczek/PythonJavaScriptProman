@@ -22,16 +22,15 @@ export let boardsManager = {
                     boardsManagerFunc.showHideButtonHandler
                 );
                 domManager.addEventListener(
-                    `h5#board-header[data-board-id="${board.id}"]`,
-                    //`.toggle-board-button[data-board-id="${board.id}"]`,
-                    "input",
-                    boardsManagerFunc.changeText
+                    `[data-board-id="${board.id}"].card-header-title--editable`,
+                    "keypress",
+                    boardsManagerFunc.editBoardTilte
                 );
                 domManager.addEventListener(
                     `div.div-button[data-board-id="${board.id}"]`,
                     "click",
                     boardsManagerFunc.deleteBoardButton
-                ) 
+                );
             }; 
         }
     },

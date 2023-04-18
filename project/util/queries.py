@@ -103,6 +103,16 @@ def delete_board(id):
         , {'id':id})
 
 
+def updata_board(id, new_title):
+    select = f'''
+    UPDATE boards SET
+    title = '{new_title}'
+    WHERE id = {id}
+    '''
+    return data_manager.execute_insert(select)
+
+
+
 def switch_columnId(column_id, card_id):
     select = f'''
         UPDATE cards SET
