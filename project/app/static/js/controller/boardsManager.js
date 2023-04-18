@@ -17,7 +17,6 @@ export let boardsManager = {
                 domManager.addChild("#root", content);
                 domManager.addEventListener(
                     `button[data-board-id="${board.id}"]`,
-                    //`.toggle-board-button[data-board-id="${board.id}"]`,
                     "click",
                     boardsManagerFunc.showHideButtonHandler
                 );

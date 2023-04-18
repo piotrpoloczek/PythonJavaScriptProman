@@ -31,7 +31,9 @@ function columnBuilder(column) {
                     <div class="card m-1">
                         <div class="row card-header m-0"> 
                             <div class="col-sm-10">
-                                <h5 id="board-header" data-board-id="${column.id}">${column.title}</h5>
+                                <form id="form-column-edit">
+                                <h5 class="column-header-title--editable" id="column-header" data-column-id="${column.id}" contenteditable="true">${column.title}</h5>    
+                                </form>
                             </div>
                             <div class="col-sm-1 div-button" data-column-id="${column.id}">
                                 <button data-toggle="modal" type="button" class="btn btn-primary" >
@@ -40,7 +42,7 @@ function columnBuilder(column) {
                         </div>
                         <div class="card-body" id="cards" data-column-id="${column.id}">
                             <div class=" card m-2 card-header">
-                                <div class="input-group mb-3">
+                                <div class="input-group mb-2">
                                     <input type="text" class="form-control add-card-imput" placeholder="Add new task" aria-label="Recipient's username" aria-describedby="basic-addon2" data-column-id="${column.id}">
                                     <div class="input-group-append">
                                         <button class="btn btn-outline-secondary add-card-button" type="button" data-column-id="${column.id}">

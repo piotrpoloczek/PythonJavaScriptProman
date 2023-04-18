@@ -70,5 +70,8 @@ export let boardsManagerFunc = {
                 let newBoardTitle = document.querySelector(`[data-board-id="${boardId}"].card-header-title--editable`).innerText; 
                 await boardsHandler.updataBoard(boardId,newBoardTitle)
             }
+        
+        // domManager.emptyElement('#root');
+        // await boardsManager.loadBoards(null)
     },
 }
