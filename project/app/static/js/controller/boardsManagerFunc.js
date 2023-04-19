@@ -73,7 +73,6 @@ export let boardsManagerFunc = {
                 newBoardTitleElement.setAttribute("contenteditable", "false");
                 newBoardTitle.innerHTML = newBoardTitle;
             }
-        
         // domManager.emptyElement('#root');
         // await boardsManager.loadBoards(null)
     },
@@ -82,7 +81,5 @@ export let boardsManagerFunc = {
         console.log(boardId)
         boardId.setAttribute("contenteditable", "true")
         boardId.focus()
-
-
     }
 }

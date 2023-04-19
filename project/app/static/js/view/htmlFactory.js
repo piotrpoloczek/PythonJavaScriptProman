@@ -32,7 +32,7 @@ function columnBuilder(column) {
                         <div class="row card-header m-0"> 
                             <div class="col-sm-10">
                                 <form id="form-column-edit">
-                                <h5 class="column-header-title--editable" id="column-header" data-column-id="${column.id}" contenteditable="false">${column.title}</h5>    
+                                <h5 class="column-header-title--editable" id="column-header" data-column-id="${column.id}" contenteditable="true">${column.title}</h5>    
                                 </form>
                             </div>
                             <div class="col-sm-1 div-button" data-column-id="${column.id}">

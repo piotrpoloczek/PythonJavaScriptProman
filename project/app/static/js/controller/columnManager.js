@@ -40,15 +40,17 @@ async function deleteColumnButton(clickEvent) {
 }
 
 async function updataColumnTilte(event) {
-    let columnId = await event.currentTarget.dataset.columnId
+    let columnElement = await event.currentTarget
+    let columnId = columnElement.dataset.columnId
     // =====>>>>let boardId = tu tzeba jakoś przekazać boardId i tez będzie działać!!!!!!!!<<<========
         if (event.keyCode === 13) {
     // Zapobiegnięcie domyślnej akcji (np. przeładowania strony)
             event.preventDefault();
 
     // Odbieranie focusu z pola edycji tytułu
-            let newColumnTitle = document.querySelector(`[data-column-id="${columnId}"].column-header-title--editable`).innerText;
-            await columnsHandler.updataColumn(boardId,columnId,newColumnTitle)
+            let newColumnTitle = columnElement.innerText;
+            await columnsHandler.updataColumn(columnId,newColumnTitle)
+            columnElement.setAttribute("contenteditable", "false");
         }
 
 }

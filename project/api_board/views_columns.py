@@ -36,9 +36,10 @@ def delete_column(column_id: int):
     return queries.delete_column(column_id)
 
 
-@api_board_bp.route("/boards/<int:board_id>/columns/<int:column_id>/updata", methods=["POST"])
+@api_board_bp.route("/boards/columns/", methods=["PUT"])
 @json_response
-def updata_column(board_id,column_id):
-    column_title = request.get_json()["title"]
-    queries.updata_column(board_id, column_id,column_title)
+def updata_column():
+    column_title = request.json["title"]
+    column_id = request.json["id"]
+    queries.updata_column(column_id,column_title)
     return {"title": column_title, "http_code": 201}
