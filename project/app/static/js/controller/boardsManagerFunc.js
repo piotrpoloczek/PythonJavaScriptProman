@@ -71,7 +71,7 @@ export let boardsManagerFunc = {
                 let newBoardTitle = newBoardTitleElement.innerText; 
                 await boardsHandler.updataBoard(boardId,newBoardTitle)
                 newBoardTitleElement.setAttribute("contenteditable", "false");
-                newBoardTitle.innerHTML = newBoardTitle;
+                newBoardTitleElement.innerText = newBoardTitle;
             }
         // domManager.emptyElement('#root');
         // await boardsManager.loadBoards(null)
