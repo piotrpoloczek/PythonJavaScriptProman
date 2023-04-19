@@ -11,7 +11,12 @@ def get_columns_for_board(board_id: int):
     All columns that belongs to a board
     :param board_id: id of the parent board
     """
-    return queries.get_everything_by_id('columns','board_id',board_id)
+    return queries.get_table_by_element_order_by_element(
+        "columns",
+        "board_id",
+        board_id,
+        "column_order"
+    )
 
 
 @api_board_bp.route("/boards/columns/", methods=["POST"])

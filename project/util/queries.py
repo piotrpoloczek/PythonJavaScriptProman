@@ -6,6 +6,23 @@ def get_everything(table_name):
     all_data = data_manager.execute_select(select)
     return all_data
 
+def get_table_order_by_element(table, element):
+    return data_manager.execute_select(
+        f"""
+        SELECT * FROM {table}
+        ORDER BY {element} ASC;
+        """
+    )
+
+def get_table_by_element_order_by_element(table, where_element, get_by, order_by):
+    return data_manager.execute_select(
+        f"""
+        SELECT * FROM {table}
+        WHERE {where_element} = {get_by}
+        ORDER BY {order_by} ASC;
+        """
+    )
+
 def get_everything_by_id(table_name, column_name, id):
     """
     """
