@@ -53,10 +53,12 @@ export let dragManager = {
                 console.log('order: '+draggable.dataset.cardOrder)
                 await cardsHandler.updateColumnIdInCard(cardId,columnId, cardOrder)
 
-                let boardElement = document.querySelector(`#div-cards[data-board-id="1"]`);
-                boardElement.innerHTML = ""
-                await columnManager.loadColumn(1);
-                dragManager.initDragManager();
+                
+
+                // let boardElement = document.querySelector(`#div-cards[data-board-id="1"]`);
+                // boardElement.innerHTML = ""
+                // await columnManager.loadColumns(1);
+                // dragManager.initDragManager();  
 
             })
         })
