@@ -30,4 +30,13 @@ export let cardsHandler = {
             }
             );
     },
+    updataCard: async function (cardId, newCardTitle){
+        // edit board data
+        return await dataCRUD.apiPut(
+            `/api/boards/columns/cards`, 
+            {
+                "title": newCardTitle,
+                "id": cardId
+            });
+    },
 }

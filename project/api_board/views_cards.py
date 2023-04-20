@@ -55,3 +55,11 @@ def swich_columnId():
 
     queries.switch_columnId(column_id, card_id, card_order)
     return {"id": card_id, "http_code": 201} 
+
+@api_board_bp.route("/boards/columns/cards", methods=["PUT"])
+@json_response
+def updata_cards():
+    card_title = request.json["title"]
+    card_id = request.json["id"]
+    queries.updata_card(card_id,card_title)
+    return {"title": card_title, "http_code": 201}

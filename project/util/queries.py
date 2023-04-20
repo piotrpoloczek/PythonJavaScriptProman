@@ -137,6 +137,14 @@ def updata_column(id, new_title):
     '''
     return data_manager.execute_insert(select)
 
+def updata_card(id, new_title):
+    select = f'''
+    UPDATE cards SET
+    title = '{new_title}'
+    WHERE id = {id}
+    '''
+    return data_manager.execute_insert(select)
+
 
 def switch_columnId(column_id, card_id, card_order):
     select = f'''

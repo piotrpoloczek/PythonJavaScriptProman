@@ -27,7 +27,11 @@ export let cardsManager = {
                 "click",
                 addCardButton
             );
-
+            domManager.addEventListener(
+                `[data-card-id="${card.id}"].card-header-title--editable`,
+                "keypress",
+                updataCardTilte
+            );
     },
 };
 
@@ -50,4 +54,19 @@ async function addCardButton(clickEvent) {
 
     let cardPromise = await cardId;
     console.log(cardPromise) 
+}
+
+async function updataCardTilte(event) {
+    let cardElement = await event.currentTarget
+    let cardId = cardElement.dataset.columnId
+
+        if (event.keyCode === 13) {
+    // Zapobiegnięcie domyślnej akcji (np. przeładowania strony)
+            event.preventDefault();
+
+    // Odbieranie focusu z pola edycji tytułu
+            let newCardTitle = cardElement.innerText;
+            await cardsHandler.updataCard(cardId,newCardTitle)
+            cardElement.setAttribute("contenteditable", "false");
+        }
 }
