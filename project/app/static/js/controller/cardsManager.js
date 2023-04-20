@@ -70,3 +70,4 @@ async function updataCardTilte(event) {
             cardElement.setAttribute("contenteditable", "false");
         }
 }
+

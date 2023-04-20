@@ -41,17 +41,21 @@ export let dragManager = {
 
                 if (afterElement == null){
                     container.appendChild(draggable)
+                    // get the length of the elements in containers and set the card order to it
                 }
                 else{
                     container.insertBefore(draggable, afterElement)
 
-                    // get after element
+                    // get after element and elements after afterElement
+                    console.log("card order of afterElement")
+                    console.log(afterElement.dataset.cardOrder)
 
                 }
 
             })
             container.addEventListener('dragend', async e =>{
                 const draggable = document.querySelector('.dragging')
+                draggable.classList.remove('dragging')
                 let columnId = container.dataset.columnId
                 let cardId = draggable.dataset.cardId
                 let cardOrder = draggable.dataset.cardOrder
