@@ -58,7 +58,7 @@ async function addCardButton(clickEvent) {
 
 async function updataCardTilte(event) {
     let cardElement = await event.currentTarget
-    let cardId = cardElement.dataset.columnId
+    let cardId = cardElement.dataset.cardId
 
         if (event.keyCode === 13) {
     // Zapobiegnięcie domyślnej akcji (np. przeładowania strony)

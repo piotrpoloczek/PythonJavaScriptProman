@@ -31,7 +31,12 @@ export let cardsHandler = {
             );
     },
     updataCard: async function (cardId, newCardTitle){
-        // edit board data
+        console.log('totototo')
+        console.log({
+            "title": newCardTitle,
+            "id": cardId
+        })
+
         return await dataCRUD.apiPut(
             `/api/boards/columns/cards`, 
             {
