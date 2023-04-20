@@ -6,7 +6,7 @@ export let cardsHandler = {
 
     },
     getCard: async function (cardId) {
-
+        return await dataCRUD.apiGet(`/api/boards/columns/cards/`), {"id": id};
     },
     getCardsByColumnId: async function (columnId) {
         return await dataCRUD.apiGet(`/api/boards/columns/${columnId}/cards/`);
@@ -31,12 +31,6 @@ export let cardsHandler = {
             );
     },
     updataCard: async function (cardId, newCardTitle){
-        console.log('totototo')
-        console.log({
-            "title": newCardTitle,
-            "id": cardId
-        })
-
         return await dataCRUD.apiPut(
             `/api/boards/columns/cards`, 
             {
