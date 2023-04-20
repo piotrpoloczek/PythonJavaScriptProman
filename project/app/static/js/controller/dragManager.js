@@ -28,6 +28,9 @@ export let dragManager = {
             container.addEventListener('dragover', async e => {
                 e.preventDefault()
                 const afterElement = getDragAfterElement(container, e.clientY)
+                const draggableElements = [...container.querySelectorAll('.card-draggable:not(.dragging)')]
+                console.log("dragable elements:")
+                console.log(draggableElements)
 
                 // there is the element 
                 console.log("after element: " + afterElement);
@@ -42,6 +45,8 @@ export let dragManager = {
                 else{
                     container.insertBefore(draggable, afterElement)
 
+                    // get after element
+
                 }
 
             })
@@ -50,7 +55,7 @@ export let dragManager = {
                 let columnId = container.dataset.columnId
                 let cardId = draggable.dataset.cardId
                 let cardOrder = draggable.dataset.cardOrder
-                console.log('order: '+draggable.dataset.cardOrder)
+                console.log('order: '+ draggable.dataset.cardOrder)
                 await cardsHandler.updateColumnIdInCard(cardId,columnId, cardOrder)
 
                 
