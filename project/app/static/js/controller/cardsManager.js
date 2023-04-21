@@ -49,11 +49,21 @@ async function deleteCardButton(clickEvent) {
 
 async function addCardButton(clickEvent) {
     let columnId = await clickEvent.currentTarget.dataset.columnId
-    let cardTitle = document.querySelector(`.add-card-imput[data-column-id="${columnId}"]`).value
-    let cardId = await cardsHandler.createNewCard(cardTitle, columnId)
+    let cardTitleElement = document.querySelector(`.add-card-imput[data-column-id="${columnId}"]`)
+    let cardTitle = cardTitleElement.value
+    let cardResponse = await cardsHandler.createNewCard(cardTitle, columnId)
 
-    let cardPromise = await cardId;
-    console.log(cardPromise) 
+    let cardPromise = await cardResponse;
+    console.log(cardPromise)
+    let cardId = cardPromise[0][0].id;
+    let card = await cardsHandler.getCard(cardId)
+    console.log("card: ")
+    console.log(card[0])
+    console.log(columnId + " fadfasdfasdfasd " + card + " dfadsf " + cardPromise)
+    await cardsManager.loadCard(columnId, card[0]);
+
+    cardTitleElement.value = ""
+
 }
 
 async function updataCardTilte(event) {

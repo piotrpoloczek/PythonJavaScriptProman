@@ -41,10 +41,12 @@ function columnBuilder(column) {
                             </div>
                         </div>
                         <div class="card-body" id="cards" data-column-id="${column.id}">
-                            <div class=" card m-2 card-header">
+                            <div class="row card m-2 card-header">
                                 <div class="input-group mb-2">
+                                    <div class="col-sm-9">
                                     <input type="text" class="form-control add-card-imput" placeholder="Add new task" aria-label="Recipient's username" aria-describedby="basic-addon2" data-column-id="${column.id}">
-                                    <div class="input-group-append">
+                                    </div>
+                                    <div class="col-sm-3 input-group-append">
                                         <button class="btn btn-outline-secondary add-card-button" type="button" data-column-id="${column.id}">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
                                             <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
