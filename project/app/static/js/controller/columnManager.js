@@ -25,11 +25,11 @@ export let columnManager = {
         domManager.addChild(`#div-cards[data-board-id="${boardId}"]`, content);
         console.log("columnId: " + column.id)
         await cardsManager.loadCards(column.id)
-        domManager.addEventListener(
-            `button#new-column`,
-            "click",
-            addColumnButton
-        );
+        // domManager.addEventListener(
+        //     `button#new-column`,
+        //     "click",
+        //     addColumnButton
+        // );
         domManager.addEventListener(
             `div.div-button[data-column-id="${column.id}"]`,
             "click",

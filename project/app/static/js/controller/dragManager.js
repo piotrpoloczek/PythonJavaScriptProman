@@ -61,7 +61,10 @@ export let dragManager = {
                 let cardId = draggable.dataset.cardId
                 let cardOrder = draggable.dataset.cardOrder
                 console.log(cardId + 'order: '+ draggable.dataset.cardOrder)
+                
+                // updaet column Id in card
                 await cardsHandler.updateColumnIdInCard(cardId,columnId,cardOrder)
+
                 console.log(cardId + 'order after: '+ draggable.dataset.cardOrder)
 
                 

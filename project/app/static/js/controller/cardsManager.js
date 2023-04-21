@@ -12,6 +12,11 @@ export let cardsManager = {
         for (let card of cards) {
             this.loadCard(columnId, card);
         }
+        domManager.addEventListener(
+            `.add-card-button[data-column-id="${columnId}"]`,
+            "click",
+            addCardButton
+        );
     },
     loadCard: async function (columnId, card) {
         const cardBuilder = htmlFactory(htmlTemplates.card);
@@ -21,11 +26,6 @@ export let cardsManager = {
                 `div.div-button[data-card-id="${card.id}"]`,
                 "click",
                 deleteCardButton
-            );
-            domManager.addEventListener(
-                `.add-card-button[data-column-id="${columnId}"]`,
-                "click",
-                addCardButton
             );
             domManager.addEventListener(
                 `[data-card-id="${card.id}"].card-header-title--editable`,
