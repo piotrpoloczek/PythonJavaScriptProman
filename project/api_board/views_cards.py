@@ -67,5 +67,7 @@ def swich_columnId():
 def updata_cards():
     card_title = request.json["title"]
     card_id = request.json["id"]
+    print('id')
+    print(card_id)
     queries.updata_card(card_id,card_title)
-    return {"title": card_title, "http_code": 201}
+    return {"id": card_id, "title": card_title, "http_code": 201}

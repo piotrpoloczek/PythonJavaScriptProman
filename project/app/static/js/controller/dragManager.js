@@ -32,6 +32,7 @@ export let dragManager = {
                 console.log("dragable elements:")
                 console.log(draggableElements)
 
+
                 // there is the element 
                 console.log("after element: " + afterElement);
                 console.log(afterElement)
@@ -59,8 +60,9 @@ export let dragManager = {
                 let columnId = container.dataset.columnId
                 let cardId = draggable.dataset.cardId
                 let cardOrder = draggable.dataset.cardOrder
-                console.log('order: '+ draggable.dataset.cardOrder)
-                await cardsHandler.updateColumnIdInCard(cardId,columnId, cardOrder)
+                console.log(cardId + 'order: '+ draggable.dataset.cardOrder)
+                await cardsHandler.updateColumnIdInCard(cardId,columnId,cardOrder)
+                console.log(cardId + 'order after: '+ draggable.dataset.cardOrder)
 
                 
 
