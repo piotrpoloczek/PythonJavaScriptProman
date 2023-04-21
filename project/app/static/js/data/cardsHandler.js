@@ -17,7 +17,7 @@ export let cardsHandler = {
     },
     deleteCard: async function (cardId) {
         // delete card
-        return await dataCRUD.apiDelete(`/api/boards/columns/cards/${cardId}`);
+        return await dataCRUD.apiDelete(`/api/boards/columns/cards/${cardId}/`);
     },
     updateColumnIdInCard: async function (cardId, columnId, cardOrder) {
         // 
