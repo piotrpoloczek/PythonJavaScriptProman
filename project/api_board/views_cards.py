@@ -42,8 +42,6 @@ def create_card(column_id):
     card_title = request.get_json()["title"]
     card_order = len(queries.get_everything_by_id('cards','column_id',column_id)) + 1
     card_id = queries.add_card(column_id, card_title, card_order)
-    print('card_id')
-    print(card_id)
     return card_id, 201
 
 @api_board_bp.route("/boards/columns/cards/<int:card_id>/", methods=["DELETE"])

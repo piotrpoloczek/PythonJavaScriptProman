@@ -40,15 +40,13 @@ export let columnManager = {
 
 async function addColumnButton(clickEvent) {
     let boardId = await clickEvent.currentTarget.dataset.boardId
-    console.log('boardId')
-    console.log(boardId)
+
     let columnTitleElement = document.querySelector(`[data-board-id="${boardId}"].add-column-imput`)
     let columnTitle = columnTitleElement.value
     let columnResponse = await columnsHandler.createColumn(columnTitle, boardId)
 
     let columnPromise = await columnResponse;
-    console.log('columnPromise')
-    console.log(columnPromise)
+
     let columnId = columnPromise[0][0].id;
     let column = await columnsHandler.getColumn(columnId)
     await columnManager.loadColumn(column[0], boardId);
@@ -62,6 +60,9 @@ async function deleteColumnButton(clickEvent) {
     // var columnId = clickEvent.curentTarget.dataset.columnId
     let columnId = await clickEvent.currentTarget.dataset.columnId
     columnsHandler.deleteColumn(columnId) 
+
+    let columnElement = document.querySelector(`.column-body[data-column-id="${columnId}"]`)
+    columnElement.remove()
 }
 
 async function updataColumnTilte(event) {

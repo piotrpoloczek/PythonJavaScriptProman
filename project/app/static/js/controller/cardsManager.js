@@ -37,7 +37,6 @@ export let cardsManager = {
 async function deleteCardButton(clickEvent) {
     // var cardId = document.querySelector('.card-draggable[data-card-id]').getAttribute('data-card-id');
     let cardId = await clickEvent.currentTarget.dataset.cardId
-    console.log("delete card: "+ cardId)
     cardsHandler.deleteCard(cardId)
 
     // remove element from column in view
@@ -51,19 +50,11 @@ async function addCardButton(clickEvent) {
     let cardTitleElement = document.querySelector(`.add-card-imput[data-column-id="${columnId}"]`)
     let cardTitle = cardTitleElement.value
     let cardResponse = await cardsHandler.createNewCard(cardTitle, columnId)
-
     let cardPromise = await cardResponse;
-    console.log('cardPromise')
-    console.log(cardPromise)
     let cardId = cardPromise[0][0].id;
     let card = await cardsHandler.getCard(cardId)
-    console.log("card: ")
-    console.log(card[0])
-    console.log(columnId + " fadfasdfasdfasd " + card + " dfadsf " + cardPromise)
     await cardsManager.loadCard(columnId, card[0]);
-
     cardTitleElement.value = ""
-
 }
 
 async function updataCardTilte(event) {

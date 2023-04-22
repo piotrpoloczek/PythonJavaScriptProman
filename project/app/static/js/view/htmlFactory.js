@@ -26,7 +26,7 @@ export function htmlFactory(template) {
 
 function columnBuilder(column) {
     return `
-                <div class="col-sm-4" data-column-id="${column.id}">
+                <div class="col-sm-4 column-body" data-column-id="${column.id}">
                     <div class="card m-1">
                         <div class="row card-header m-0"> 
                             <div class="col-sm-10">
