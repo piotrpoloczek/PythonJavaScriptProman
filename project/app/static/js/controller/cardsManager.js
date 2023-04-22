@@ -8,7 +8,6 @@ import { refreshManager } from "./refreshManager.js";
 export let cardsManager = {
     loadCards: async function (columnId) {
         const cards = await cardsHandler.getCardsByColumnId(columnId)
-        console.log(cards);
         for (let card of cards) {
             this.loadCard(columnId, card);
         }
@@ -54,6 +53,7 @@ async function addCardButton(clickEvent) {
     let cardResponse = await cardsHandler.createNewCard(cardTitle, columnId)
 
     let cardPromise = await cardResponse;
+    console.log('cardPromise')
     console.log(cardPromise)
     let cardId = cardPromise[0][0].id;
     let card = await cardsHandler.getCard(cardId)
