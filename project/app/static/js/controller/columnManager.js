@@ -12,14 +12,10 @@ export let columnManager = {
         for(let column of columns) {
             await columnManager.loadColumn(column, boardId);
         }
-        const columnBuilder = htmlFactory(htmlTemplates.addColumn);
-        const content = columnBuilder(boardId);
-        domManager.addChild(`#div-cards[data-board-id="${boardId}"]`, content);
-        domManager.addEventListener(
-            `[data-board-id="${boardId}"].add-column-button`,
-            "click",
-            addColumnButton
-        );
+
+        // add div with button and niput for creating the new column
+        addAddColumnElement(boardId);
+
     },
     loadColumn: async function(column, boardId) {
         const columnBuilder = htmlFactory(htmlTemplates.column);
@@ -49,9 +45,16 @@ async function addColumnButton(clickEvent) {
 
     let columnId = columnPromise[0][0].id;
     let column = await columnsHandler.getColumn(columnId)
+
+
+    await removeAddColumnElement(boardId);
+
     await columnManager.loadColumn(column[0], boardId);
 
-    columnTitleElement.value = ""
+    // columnTitleElement.value = ""
+
+    
+    addAddColumnElement(boardId);
 
 }
 
@@ -80,3 +83,20 @@ async function updataColumnTilte(event) {
         }
 
 }
+
+async function addAddColumnElement(boardId) {
+    const columnBuilder = htmlFactory(htmlTemplates.addColumn);
+    const content = columnBuilder(boardId);
+    domManager.addChild(`#div-cards[data-board-id="${boardId}"]`, content);
+    domManager.addEventListener(
+        `[data-board-id="${boardId}"].add-column-button`,
+        "click",
+        addColumnButton
+    );
+}
+
+async function removeAddColumnElement(boardId){
+    let addColumnElement = document.querySelector(`[data-board-id="${boardId}"].add-column-element`)
+    addColumnElement.remove()
+}
+
