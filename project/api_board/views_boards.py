@@ -21,8 +21,9 @@ def get_board(board_id: int):
 @json_response
 def create_board():
     board_title = request.get_json()["title"]
-    queries.add_board(board_title)
-    return {"title": board_title, "http_code": 201}
+    board_status = int(request.get_json()["status"])
+    queries.add_board(board_title, board_status)
+    return {"title": board_title, "type": board_status, "http_code": 201}
 
 @api_board_bp.route("/boards/<int:board_id>", methods=["DELETE"])
 @json_response
