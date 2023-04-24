@@ -41,12 +41,9 @@ export let boardsManager = {
     createBoard: async function () {
         console.log("print something modal works")
         let titleField = document.querySelector("input#title-board");
-        let publicBoard = document.querySelector("#flexRadioDefault1").value;
-        console.log(publicBoard)
-        console.log(titleField);
+        let boardStatus = document.querySelector("#board-status").checked;
         let title = titleField.value;
-        console.log("text from field: " + title);
-        boardsHandler.createNewBoard(title);
+        boardsHandler.createNewBoard(title, boardStatus);
 
         // TODO add user id and use it in refreshing page by AJAX
         // const openBoardId = refreshManager.getOpenBoards();
