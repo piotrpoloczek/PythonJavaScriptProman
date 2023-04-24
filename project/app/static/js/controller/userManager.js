@@ -11,10 +11,12 @@ export let userManager = {
             console.log("show all boards, private and public");
             console.log(userName.innerText);
             boardsManager.loadBoards(userId);
+
         } else {
             // shows only public boards
             boardsManager.loadBoards(null);
+
         }
-    return userName
+
     },
 }

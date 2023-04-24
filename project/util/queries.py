@@ -61,14 +61,14 @@ def user_data(email):
         , {"email": email}, fetchall=None)
     return user_data
 
-def add_board(title, board_status):
+def add_board(title, user_id, board_status):
     return data_manager.execute_insert( 
                 """
                 INSERT into 
-                boards (title, type)
+                boards (title, user_id, type)
                 values 
-                (%(title)s, %(type)s)"""
-                , {'title': title, 'type': board_status})
+                (%(title)s, %(user_id)s, %(type)s)"""
+                , {'title': title, "user_id": user_id,'type': board_status})
 
 
 def add_col(board_id, title, column_order):
