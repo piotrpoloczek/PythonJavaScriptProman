@@ -15,5 +15,6 @@ export let userManager = {
             // shows only public boards
             boardsManager.loadBoards(null);
         }
+    return userName
     },
 }
