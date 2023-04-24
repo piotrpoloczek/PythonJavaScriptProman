@@ -1,8 +1,8 @@
 import { boardsHandler } from "../data/boardsHandler.js";
 import {htmlFactory, htmlTemplates} from "../view/htmlFactory.js";
 import {domManager} from "../view/domManager.js";
-import { refreshManager } from "./refreshManager.js";
 import { boardsManagerFunc } from "./boardsManagerFunc.js";
+
 
 
 export let boardsManager = {
@@ -41,14 +41,16 @@ export let boardsManager = {
     createBoard: async function () {
         console.log("print something modal works")
         let titleField = document.querySelector("input#title-board");
+        let publicBoard = document.querySelector("#flexRadioDefault1").value;
+        console.log(publicBoard)
         console.log(titleField);
         let title = titleField.value;
         console.log("text from field: " + title);
         boardsHandler.createNewBoard(title);
 
         // TODO add user id and use it in refreshing page by AJAX
-        const openBoardId = refreshManager.getOpenBoards();
-        domManager.emptyElement('#root');
-        await boardsManager.loadBoards(null, openBoardId);
+        // const openBoardId = refreshManager.getOpenBoards();
+        // domManager.emptyElement('#root');
+        // await boardsManager.loadBoards(null, openBoardId);
     },
 };

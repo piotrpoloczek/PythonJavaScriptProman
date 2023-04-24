@@ -46,16 +46,11 @@ async function addColumnButton(clickEvent) {
     let columnId = columnPromise[0][0].id;
     let column = await columnsHandler.getColumn(columnId)
 
-
     await removeAddColumnElement(boardId);
-
     await columnManager.loadColumn(column[0], boardId);
 
     // columnTitleElement.value = ""
-
-    
     addAddColumnElement(boardId);
-
 }
 
 
@@ -81,7 +76,6 @@ async function updataColumnTilte(event) {
             await columnsHandler.updataColumn(columnId,newColumnTitle)
             columnElement.setAttribute("contenteditable", "false");
         }
-
 }
 
 async function addAddColumnElement(boardId) {
@@ -99,4 +93,3 @@ async function removeAddColumnElement(boardId){
     let addColumnElement = document.querySelector(`[data-board-id="${boardId}"].add-column-element`)
     addColumnElement.remove()
 }
-
