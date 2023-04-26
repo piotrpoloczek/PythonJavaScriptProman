@@ -3,6 +3,7 @@ import {domManager} from "../view/domManager.js";
 import {cardsManager} from "./cardsManager.js";
 import { columnsHandler } from "../data/columnsHandler.js";
 import { boardsManager } from "./boardsManager.js";
+import { dragManager } from "./dragManager.js";
 
 
 export let columnManager = {
@@ -51,6 +52,7 @@ async function addColumnButton(clickEvent) {
 
     // columnTitleElement.value = ""
     addAddColumnElement(boardId);
+    dragManager.initDragManager();
 }
 
 
@@ -87,6 +89,7 @@ async function addAddColumnElement(boardId) {
         "click",
         addColumnButton
     );
+    
 }
 
 async function removeAddColumnElement(boardId){
