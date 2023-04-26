@@ -11,7 +11,11 @@ export let boardsManager = {
         console.log("get user id from flask: " + userId);
         const boards = await boardsHandler.getBoards();
         for (let board of boards) {
-            console.log("board type: " + board.type + ", board userId: " + board.user_id + board.id);
+            this.loadBoard(board, userId);
+        }
+    },
+    loadBoard: async function (board, userId) {
+        console.log("board type: " + board.type + ", board userId: " + board.user_id + board.id);
             if (board.type == 1 || board.user_id == userId) {
                 const boardBuilder = htmlFactory(htmlTemplates.board);
                 const content = boardBuilder(board);
@@ -37,7 +41,6 @@ export let boardsManager = {
                     boardsManagerFunc.changeElementEdit
                 )
             }; 
-        }
     },
     createBoard: async function () {
         // console.log("print something modal works")
@@ -56,20 +59,19 @@ export let boardsManager = {
             let titleField = document.querySelector("input#title-board");
             let title = titleField.value;
             let boardStatus = document.querySelector("#board-status").checked;
-            boardsHandler.createNewBoard(title, boardStatus, userId);
+            let boardResponse = boardsHandler.createNewBoard(title, boardStatus, userId);
+            boardsManagerFunc.getBoardAfterCreate(boardResponse, userId)
 
         } else {
             console.log("not logIn")
             let titleField = document.querySelector("input#title-board");
             let title = titleField.value;
-            boardsHandler.createNewBoard(title, '0', '0');
+            let boardResponse = boardsHandler.createNewBoard(title);
+            boardsManagerFunc.getBoardAfterCreate(boardResponse, null)
         }
+
+        
+
     
         },
-
-        // TODO add user id and use it in refreshing page by AJAX
-        // const openBoardId = refreshManager.getOpenBoards();
-        // domManager.emptyElement('#root');
-        // await boardsManager.loadBoards(null, openBoardId);
-    
 };

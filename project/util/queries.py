@@ -62,12 +62,13 @@ def user_data(email):
     return user_data
 
 def add_board(title, user_id, board_status):
-    return data_manager.execute_insert( 
+    return data_manager.execute_select( 
                 """
                 INSERT into 
                 boards (title, user_id, type)
                 values 
-                (%(title)s, %(user_id)s, %(type)s)"""
+                (%(title)s, %(user_id)s, %(type)s)
+                RETURNING boards.id"""
                 , {'title': title, "user_id": user_id,'type': board_status})
 
 
