@@ -119,7 +119,7 @@ function addColumnBuilder(boardId){
     return`
         <div class="col-sm-4 add-column-element" data-board-id="${boardId}">
             <div class="card m-1">
-                <div class="card-body" id="cards" >
+                <div class="card-body-add" id="cards" >
                     <div class="row card m-2 card-header">
                         <div class="input-group mb-2">
                             <div class="col-sm-9">
