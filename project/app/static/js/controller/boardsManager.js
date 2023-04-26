@@ -12,7 +12,7 @@ export let boardsManager = {
         const boards = await boardsHandler.getBoards();
         for (let board of boards) {
             console.log("board type: " + board.type + ", board userId: " + board.user_id + board.id);
-            if (board.type == 0 || board.user_id == userId) {
+            if (board.type == 1 || board.user_id == userId) {
                 const boardBuilder = htmlFactory(htmlTemplates.board);
                 const content = boardBuilder(board);
                 domManager.addChild("#root", content);
