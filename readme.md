@@ -1,4 +1,4 @@
-📋 # ProMan Project Management Tool
+# 📋 ProMan Project Management Tool
 
 ## Introduction
 🚀 ProMan was conceived to fill the need for an in-house, efficient, and user-friendly project management tool, similar to Trello but tailored to our specific requirements and preferences.
